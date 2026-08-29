@@ -6,11 +6,11 @@ Repositorio del grupo. Partir de este esqueleto. No borrar la estructura de `src
 
 | Nombre | Mail | GitHub |
 | --- | --- | --- |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+| Nahuel Armesto | armestonahuel2@hotmail.com | https://github.com/Morfeo4264 |
+| Juan Pablo Machi | juanpablomacchi0@gmail.com | https://github.com/juanpablomacchi0-ui |
+| Santiago Reichart | santiagoianreichart@gmail.com | https://github.com/santiagoianreichart-debug |
 
-**Tema elegido:** Pokédex / Recetario / Biblioteca musical (dejar uno)
+**Tema elegido:** Biblioteca musical 
 
 ## Cómo ejecutar
 
