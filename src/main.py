@@ -1,4 +1,6 @@
 from src.config import TEMA
+from src.dominio.catalogo import crear_catalogo
+
 
 TEMAS = {
     "pokedex": "Pokédex",
@@ -9,6 +11,13 @@ TEMAS = {
 
 def pendiente():
     print("Todavía no está implementado. Completar en la entrega que corresponde.")
+
+
+def mostrar_catalogo(catalogo):
+    print("\n=== Catálogo de canciones ===")
+
+    for i, cancion in enumerate(catalogo, start=1):
+        print(f"{i}. {cancion}")
 
 
 def mostrar_menu():
@@ -32,13 +41,18 @@ def main():
         print("Seteá TEMA en src/config.py: 'pokedex', 'recetario' o 'musica'.")
         return
 
+    catalogo = crear_catalogo()
+
     opcion = None
     while opcion != "0":
         mostrar_menu()
         opcion = input("> ").strip()
+
         if opcion == "0":
             print("Chau.")
-        elif opcion in {"1", "2", "3", "4", "5", "6", "7", "8", "9"}:
+        elif opcion == "1":
+            mostrar_catalogo(catalogo)
+        elif opcion in {"2", "3", "4", "5", "6", "7", "8", "9"}:
             pendiente()
         else:
             print("Opción inválida.")
