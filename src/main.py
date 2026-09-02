@@ -20,6 +20,54 @@ def mostrar_catalogo(catalogo):
         print(f"{i}. {cancion}")
 
 
+def mostrar_detalle(catalogo):
+    mostrar_catalogo(catalogo)
+
+    opcion = input("\nElegí el número de una canción: ").strip()
+
+    if not opcion.isdigit():
+        print("Ingresá un número válido.")
+        return
+
+    indice = int(opcion) - 1
+
+    if indice < 0 or indice >= len(catalogo):
+        print("Número de canción inválido.")
+        return
+
+    cancion = catalogo[indice]
+
+    print("\n=== Detalle de la canción ===")
+    print(f"Título: {cancion.titulo}")
+    print(f"Artista: {cancion.artista}")
+    print(f"Álbum: {cancion.album}")
+    print(f"Género: {cancion.genero}")
+    print(f"Año: {cancion.anio}")
+
+
+def buscar_cancion(catalogo):
+    texto = input("\nIngresá el título o artista a buscar: ").strip().lower()
+
+    if not texto:
+        print("La búsqueda no puede estar vacía.")
+        return
+
+    encontrados = []
+
+    for cancion in catalogo:
+        if texto in cancion.titulo.lower() or texto in cancion.artista.lower():
+            encontrados.append(cancion)
+
+    if not encontrados:
+        print("No se encontraron canciones.")
+        return
+
+    print("\n=== Resultados de búsqueda ===")
+
+    for i, cancion in enumerate(encontrados, start=1):
+        print(f"{i}. {cancion}")
+
+
 def mostrar_menu():
     nombre = TEMAS.get(TEMA, TEMA or "(sin tema)")
     print()
@@ -52,7 +100,11 @@ def main():
             print("Chau.")
         elif opcion == "1":
             mostrar_catalogo(catalogo)
-        elif opcion in {"2", "3", "4", "5", "6", "7", "8", "9"}:
+        elif opcion == "2":
+            mostrar_detalle(catalogo)
+        elif opcion == "3":
+            buscar_cancion(catalogo)
+        elif opcion in {"4", "5", "6", "7", "8", "9"}:
             pendiente()
         else:
             print("Opción inválida.")
