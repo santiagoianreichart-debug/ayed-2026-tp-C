@@ -4,16 +4,31 @@ Completar y hacer crecer en cada entrega. No hace falta prosa larga: oraciones c
 
 ## 1. Grupo y tema
 
-- Tema:
-- Por qué lo eligieron (5–8 líneas):
+- Tema: Biblioteca Musical
+- Por qué lo eligieron (5–8 líneas): Lo elegimos porque somos usuarios de Spotify y nos parecio el proyecto más cercano a nuestros gustos. También porque queremos aplicar nuestros conocimientos en crear un catalogo, listas de reproducción, etc; similares a dicha aplicación.
 
 ## 2. Modelo
 
 Qué es un ítem del catálogo. Qué es mutable y qué no (E1). Cómo se relacionan catálogo, colección principal, pila y cola.
 
-```text
-(pueden pegar un diagrama ASCII o una lista de clases)
-```
+Catálogo es la lista completa de canciones, cada canción del CSV se convierte en el objeto "Cancion" por lo tanto es mutable ya que pueden editarse, crearse o eliminarse canciones de la lista.
+
+Ítem del catálogo es una instancia de la clase Cancion. Es inmutable ya que funciona como "plantilla" o molde para cada canción pero sus atributos: titulo, artista, album, genero y anio son mutables.
+
+Colección Principal es una lista creada por el usuario al añadir o borrar canciones, es mutable. Funciona como una lista derivada del Catálogo.
+
+Pila es el historial de acciones del usuario ordenado desde la última acción realizada. Es mutable ya que depende de borrar o agregar canciones.
+
+Cola es la lista de reproducción de la biblioteca, se reproduce de acuerdo al orden en que fueron agregadas (primero el primero, último el último). Es mutable ya que el usuario puede agregar o terminar de escuchar las canciones.
+
+ASCII: 
+CATÁLOGO (todas las canciones de la database)
+   |
+   +--> COLECCIÓN PRINCIPAL (playlist creada por el usuario)
+   |
+   +--> PILA (historial de acciones)
+   |
+   +--> COLA (lista de reproducción actual)
 
 ## 3. Recursión (E2)
 
