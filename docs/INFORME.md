@@ -22,12 +22,19 @@ Pila es el historial de acciones del usuario ordenado desde la última acción r
 Cola es la lista de reproducción de la biblioteca, se reproduce de acuerdo al orden en que fueron agregadas (primero el primero, último el último). Es mutable ya que el usuario puede agregar o terminar de escuchar las canciones.
 
 ASCII: 
+
 CATÁLOGO (todas las canciones de la database)
-   |
+   
+   | 
+  
    +--> COLECCIÓN PRINCIPAL (playlist creada por el usuario)
+  
    |
+   
    +--> PILA (historial de acciones)
+   
    |
+  
    +--> COLA (lista de reproducción actual)
 
 ## 3. Recursión (E2)
