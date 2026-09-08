@@ -23,12 +23,12 @@ Cola es la lista de reproducción de la biblioteca, se reproduce de acuerdo al o
 
 ASCII: 
 CATÁLOGO (todas las canciones de la database)
-   |
-   +--> COLECCIÓN PRINCIPAL (playlist creada por el usuario)
-   |
-   +--> PILA (historial de acciones)
-   |
-   +--> COLA (lista de reproducción actual)
+|
++--> COLECCIÓN PRINCIPAL (playlist creada por el usuario)
+|
++--> PILA (historial de acciones)
+|
++--> COLA (lista de reproducción actual)
 
 ## 3. Recursión (E2)
 
