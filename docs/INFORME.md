@@ -11,40 +11,33 @@ Completar y hacer crecer en cada entrega. No hace falta prosa larga: oraciones c
 
 Qué es un ítem del catálogo. Qué es mutable y qué no (E1). Cómo se relacionan catálogo, colección principal, pila y cola.
 
-Catálogo es la lista completa de canciones, cada canción del CSV se convierte en el objeto "Cancion" por lo tanto es mutable ya que pueden editarse, crearse o eliminarse canciones de la lista.
+El catálogo contiene las canciones disponibles en la biblioteca. En E1 se encuentra armado manualmente mediante una lista de objetos `Cancion`.
 
-Ítem del catálogo es una instancia de la clase Cancion. Es inmutable ya que funciona como "plantilla" o molde para cada canción pero sus atributos: titulo, artista, album, genero y anio son mutables.
+Un ítem del catálogo es una instancia de la clase `Cancion`. Cada objeto contiene los datos de una canción: id, título, artista, álbum, género, año y duración. El objeto `Cancion` es mutable porque sus atributos pueden modificarse.
 
-Colección Principal es una lista creada por el usuario al añadir o borrar canciones, es mutable. Funciona como una lista derivada del Catálogo.
+El catálogo también es mutable porque se representa mediante una lista de Python, cuyos elementos pueden agregarse o eliminarse.
 
-Pila es el historial de acciones del usuario ordenado desde la última acción realizada. Es mutable ya que depende de borrar o agregar canciones.
+Los atributos de tipo `str`, como título, artista, álbum y género, son objetos inmutables. Lo mismo ocurre con los atributos de tipo `int`, como id, año y duración. Si se asigna otro valor a uno de estos atributos, se reemplaza el objeto anterior por otro valor.
 
-Cola es la lista de reproducción de la biblioteca, se reproduce de acuerdo al orden en que fueron agregadas (primero el primero, último el último). Es mutable ya que el usuario puede agregar o terminar de escuchar las canciones.
+La Colección Principal será una lista creada por el usuario a partir de las canciones del catálogo. Es mutable porque se podrán agregar o eliminar canciones.
 
-ASCII: 
+La Pila representará el historial de acciones del usuario. Es mutable y seguirá el principio LIFO (Last In, First Out), por el cual la última acción agregada será la primera en retirarse.
 
-CATÁLOGO (todas las canciones de la database)
-<<<<<<< HEAD
-|
-+--> COLECCIÓN PRINCIPAL (playlist creada por el usuario)
-|
-+--> PILA (historial de acciones)
-|
-+--> COLA (lista de reproducción actual)
-=======
-   
-   | 
-  
-   +--> COLECCIÓN PRINCIPAL (playlist creada por el usuario)
-  
-   |
-   
-   +--> PILA (historial de acciones)
-   
-   |
-  
-   +--> COLA (lista de reproducción actual)
->>>>>>> 75758b2a1d4c224a1ac7901d7982484bdb4107a2
+La Cola representará la lista de reproducción. Es mutable y seguirá el principio FIFO (First In, First Out), por el cual la primera canción agregada será la primera en salir.
+
+ASCII:
+
+CATÁLOGO
+(todas las canciones)
+      |
+      +--> COLECCIÓN PRINCIPAL
+      |    (playlist creada por el usuario)
+      |
+      +--> PILA
+      |    (historial de acciones)
+      |
+      +--> COLA
+           (lista de reproducción actual)
 
 ## 3. Recursión (E2)
 
