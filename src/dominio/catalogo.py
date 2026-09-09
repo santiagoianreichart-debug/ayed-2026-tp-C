@@ -5,11 +5,11 @@ from src.dominio.cancion import Cancion
 
 def crear_catalogo():
     canciones = [
-        Cancion("La Flaca", "Jarabe de Palo", "La Flaca", "Pop/Rock en español", 1996),
-        Cancion("Sin Documentos", "Los Rodríguez", "Sin Documentos", "Rock/Pop Rock", 1993),
-        Cancion("Muriendo de Plena", "Rubén Rada", "Quién va a cantar", "Salsa/Tropical", 2000),
-        Cancion("Microdancing", "Babasónicos", "Mucho", "Rock alternativo/Indie", 2008),
-        Cancion("11 y 6", "Fito Páez", "Giros", "Trova rosarina/Pop Rock", 1985),
+        Cancion(1, "La Flaca", "Jarabe de Palo", "La Flaca", "Pop/Rock en español", 1996, 240),
+        Cancion(2, "Sin Documentos", "Los Rodríguez", "Sin Documentos", "Rock/Pop Rock", 1993, 260),
+        Cancion(3, "Muriendo de Plena", "Rubén Rada", "Quién va a cantar", "Salsa/Tropical", 2000, 210),
+        Cancion(4, "Microdancing", "Babasónicos", "Mucho", "Rock alternativo/Indie", 2008, 200),
+        Cancion(5, "11 y 6", "Fito Páez", "Giros", "Trova rosarina/Pop Rock", 1985, 230),
     ]
 
     return canciones
@@ -24,11 +24,13 @@ def crear_catalogo():
 
         for fila in lector:
             cancion = Cancion(
+                fila["id"],
                 fila["titulo"],
                 fila["artista"],
                 fila["album"],
                 fila["genero"],
-                int(fila["anio"]),
+                fila["anio"],
+                fila["duracion_seg"],
             )
 
             catalogo.append(cancion)

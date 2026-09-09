@@ -38,12 +38,13 @@ def mostrar_detalle(catalogo):
     cancion = catalogo[indice]
 
     print("\n=== Detalle de la canción ===")
+    print(f"ID: {cancion.id}")
     print(f"Título: {cancion.titulo}")
     print(f"Artista: {cancion.artista}")
     print(f"Álbum: {cancion.album}")
     print(f"Género: {cancion.genero}")
     print(f"Año: {cancion.anio}")
-
+    print(f"Duración (segundos): {cancion.duracion_seg}")
 
 def buscar_cancion(catalogo):
     texto = input("\nIngresá el título o artista a buscar: ").strip().lower()
