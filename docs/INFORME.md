@@ -41,6 +41,31 @@ CATÁLOGO
 
 ## 3. Recursión (E2)
 
+Recursión 
+
+Se implementó una función recursiva para calcular la duración total de una colección de canciones.
+
+Función: duracion_total_recursiva(canciones, indice=0).
+Caso base: cuando indice == len(canciones), no quedan canciones por procesar y la función retorna 0.
+Caso recursivo: se suma la duración de la canción actual y se llama nuevamente a la función con el siguiente índice.
+
+Traza con tres canciones del catálogo:
+
+Flaca → 240 segundos
+Sin Documentos → 260 segundos
+Muriendo de Plena → 210 segundos
+f(0) = 240 + f(1)
+f(1) = 260 + f(2)
+f(2) = 210 + f(3)
+f(3) = 0
+
+f(2) = 210
+f(1) = 260 + 210 = 470
+f(0) = 240 + 470 = 710 segundos
+
+El resultado de la traza es 710 segundos, equivalentes a 11 minutos y 50 segundos.
+
+
 - Función:
 - Caso base:
 - Caso recursivo:

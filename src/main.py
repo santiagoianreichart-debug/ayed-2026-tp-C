@@ -1,5 +1,6 @@
 from src.config import TEMA
 from src.dominio.catalogo import crear_catalogo
+from src.dominio.recursion import duracion_total_recursiva
 
 
 TEMAS = {
@@ -11,6 +12,16 @@ TEMAS = {
 
 def pendiente():
     print("Todavía no está implementado. Completar en la entrega que corresponde.")
+
+
+def mostrar_duracion_total(catalogo):
+    total = duracion_total_recursiva(catalogo)
+
+    minutos = total // 60
+    segundos = total % 60
+
+    print("\n=== Duración total del catálogo ===")
+    print(f"{minutos} minutos y {segundos} segundos")
 
 
 def mostrar_catalogo(catalogo):
@@ -46,6 +57,7 @@ def mostrar_detalle(catalogo):
     print(f"Año: {cancion.anio}")
     print(f"Duración (segundos): {cancion.duracion_seg}")
 
+
 def buscar_cancion(catalogo):
     texto = input("\nIngresá el título o artista a buscar: ").strip().lower()
 
@@ -71,6 +83,7 @@ def buscar_cancion(catalogo):
 
 def mostrar_menu():
     nombre = TEMAS.get(TEMA, TEMA or "(sin tema)")
+
     print()
     print(f"=== {nombre} — AyED C2 2026 ===")
     print("1. Listar catálogo")
@@ -93,6 +106,7 @@ def main():
     catalogo = crear_catalogo()
 
     opcion = None
+
     while opcion != "0":
         mostrar_menu()
         opcion = input("> ").strip()
@@ -105,7 +119,9 @@ def main():
             mostrar_detalle(catalogo)
         elif opcion == "3":
             buscar_cancion(catalogo)
-        elif opcion in {"4", "5", "6", "7", "8", "9"}:
+        elif opcion == "5":
+            mostrar_duracion_total(catalogo)
+        elif opcion in {"4", "6", "7", "8", "9"}:
             pendiente()
         else:
             print("Opción inválida.")
