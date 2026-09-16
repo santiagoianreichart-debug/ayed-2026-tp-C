@@ -1,6 +1,6 @@
 from src.config import TEMA
 from src.dominio.catalogo import crear_catalogo
-from src.dominio.recursion import duracion_total_recursiva
+from src.dominio.recursion import listar_versiones_recursivas
 
 
 TEMAS = {
@@ -12,16 +12,6 @@ TEMAS = {
 
 def pendiente():
     print("Todavía no está implementado. Completar en la entrega que corresponde.")
-
-
-def mostrar_duracion_total(catalogo):
-    total = duracion_total_recursiva(catalogo)
-
-    minutos = total // 60
-    segundos = total % 60
-
-    print("\n=== Duración total del catálogo ===")
-    print(f"{minutos} minutos y {segundos} segundos")
 
 
 def mostrar_catalogo(catalogo):
@@ -81,6 +71,34 @@ def buscar_cancion(catalogo):
         print(f"{i}. {cancion}")
 
 
+def mostrar_versiones(catalogo):
+    mostrar_catalogo(catalogo)
+
+    opcion = input("\nElegí el número de la canción original: ").strip()
+
+    if not opcion.isdigit():
+        print("Ingresá un número válido.")
+        return
+
+    indice = int(opcion) - 1
+
+    if indice < 0 or indice >= len(catalogo):
+        print("Número de canción inválido.")
+        return
+
+    cancion = catalogo[indice]
+    versiones = listar_versiones_recursivas(catalogo, cancion.id)
+
+    print(f"\n=== Versiones de {cancion.titulo} ===")
+
+    if not versiones:
+        print("No se encontraron versiones.")
+        return
+
+    for version in versiones:
+        print(f"- {version}")
+
+
 def mostrar_menu():
     nombre = TEMAS.get(TEMA, TEMA or "(sin tema)")
 
@@ -120,7 +138,7 @@ def main():
         elif opcion == "3":
             buscar_cancion(catalogo)
         elif opcion == "5":
-            mostrar_duracion_total(catalogo)
+            mostrar_versiones(catalogo)
         elif opcion in {"4", "6", "7", "8", "9"}:
             pendiente()
         else:

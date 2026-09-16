@@ -1,6 +1,3 @@
-import csv
-from pathlib import Path
-
 from src.dominio.cancion import Cancion
 
 
@@ -14,6 +11,8 @@ def crear_catalogo():
         Cancion(6, "Just What I Needed", "The Cars", "The Cars", "Rock", 1978, 236),
         Cancion(7, "Sultans of Swing", "Dire Straits", "Dire Straits", "Rock", 1978, 348),
         Cancion(8, "Have You Ever Seen the Rain?", "Creedence Clearwater Revival", "Pendulum", "Rock", 1970, 160),
+        Cancion(16, "Have You Ever Seen the Rain?", "Joan Jett", "I Love Rock 'n Roll", "Rock", 1981, 174, version_de=8),
+        Cancion(17, "Have You Ever Seen the Rain?", "Spin Doctors", "If the River Was Whiskey", "Rock", 1991, 190, version_de=8),
         Cancion(9, "Beat It", "Michael Jackson", "Thriller", "Pop/Rock", 1982, 258),
         Cancion(10, "Enjoy the Silence", "Depeche Mode", "Violator", "Synth-pop", 1990, 374),
         Cancion(11, "Boulevard of Broken Dreams", "Green Day", "American Idiot", "Rock", 2004, 262),
@@ -24,27 +23,3 @@ def crear_catalogo():
     ]
 
     return canciones
-
-#def crear_catalogo():
-    ruta = Path(__file__).resolve().parents[2] / "data" / "canciones.csv"
-
-    catalogo = []
-
-    with open(ruta, mode="r", encoding="utf-8", newline="") as archivo:
-        lector = csv.DictReader(archivo)
-
-        for fila in lector:
-            cancion = Cancion(
-                fila["id"],
-                fila["titulo"],
-                fila["artista"],
-                fila["album"],
-                fila["genero"],
-                fila["anio"],
-                fila["duracion_seg"],
-            )
-
-            catalogo.append(cancion)
-
-    return catalogo
-

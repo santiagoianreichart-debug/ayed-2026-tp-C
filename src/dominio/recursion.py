@@ -1,7 +1,13 @@
-def duracion_total_recursiva(canciones, indice=0):
+def listar_versiones_recursivas(canciones, id_cancion, indice=0):
     if indice == len(canciones):
-        return 0
+        return []
 
-    return canciones[indice].duracion_seg + duracion_total_recursiva(
-        canciones, indice + 1
-    )
+    cancion = canciones[indice]
+
+    if cancion.version_de == id_cancion:
+        versiones = [cancion]
+        versiones += listar_versiones_recursivas(canciones, cancion.id)
+        versiones += listar_versiones_recursivas(canciones, id_cancion, indice + 1)
+        return versiones
+
+    return listar_versiones_recursivas(canciones, id_cancion, indice + 1)
