@@ -39,31 +39,88 @@ CATÁLOGO
       +--> COLA
            (lista de reproducción actual)
 
+
 ## 3. Recursión (E2)
 
-Recursión 
+Se implementó una función recursiva para listar todas las versiones derivadas de una canción a partir de la relación entre `version_de` e `id`.
 
-Se implementó una función recursiva para calcular la duración total de una colección de canciones.
+* **Función:** `listar_versiones_recursivas(canciones, id_cancion, indice=0)`.
+* **Caso base:** cuando `indice == len(canciones)`, se llegó al final del catálogo. En ese momento no quedan canciones por analizar y la función retorna una lista vacía.
+* **Caso recursivo:** se analiza la canción ubicada en el índice actual. Si su atributo `version_de` coincide con el ID buscado, se agrega como versión y se realiza una llamada recursiva para buscar si esa versión tiene otras versiones derivadas. Luego se continúa recorriendo el catálogo para encontrar otras versiones de la canción original.
 
-Función: duracion_total_recursiva(canciones, indice=0).
-Caso base: cuando indice == len(canciones), no quedan canciones por procesar y la función retorna 0.
-Caso recursivo: se suma la duración de la canción actual y se llama nuevamente a la función con el siguiente índice.
+### Traza
 
-Traza con tres canciones del catálogo:
+Se toma como ejemplo la canción `"Have You Ever Seen the Rain?"` de Creedence Clearwater Revival, cuyo ID es `8`.
 
-Flaca → 240 segundos
-Sin Documentos → 260 segundos
-Muriendo de Plena → 210 segundos
-f(0) = 240 + f(1)
-f(1) = 260 + f(2)
-f(2) = 210 + f(3)
-f(3) = 0
+En el catálogo existen dos versiones derivadas:
 
-f(2) = 210
-f(1) = 260 + 210 = 470
-f(0) = 240 + 470 = 710 segundos
+* ID `16`: Have You Ever Seen the Rain? - Joan Jett (1981), con `version_de = 8`.
+* ID `17`: Have You Ever Seen the Rain? - Spin Doctors (1991), con `version_de = 8`.
 
-El resultado de la traza es 710 segundos, equivalentes a 11 minutos y 50 segundos.
+La llamada inicial es:
+
+```text
+listar_versiones_recursivas(catalogo, 8, 0)
+```
+
+La función recorre el catálogo hasta encontrar una canción cuyo `version_de` sea `8`.
+
+```text
+listar_versiones_recursivas(catalogo, 8, 0)
+    ↓
+recorre el catálogo
+    ↓
+encuentra Joan Jett (ID 16, version_de = 8)
+    ↓
+agrega Joan Jett a la lista
+    ↓
+llamada recursiva:
+listar_versiones_recursivas(catalogo, 16, 0)
+    ↓
+recorre el catálogo buscando versiones de Joan Jett
+    ↓
+no encuentra ninguna
+    ↓
+llega al final del catálogo
+    ↓
+caso base → retorna []
+    ↓
+vuelve a la llamada que buscaba versiones de ID 8
+    ↓
+continúa recorriendo el catálogo
+    ↓
+encuentra Spin Doctors (ID 17, version_de = 8)
+    ↓
+agrega Spin Doctors a la lista
+    ↓
+llamada recursiva:
+listar_versiones_recursivas(catalogo, 17, 0)
+    ↓
+recorre el catálogo buscando versiones de Spin Doctors
+    ↓
+no encuentra ninguna
+    ↓
+llega al final del catálogo
+    ↓
+caso base → retorna []
+    ↓
+continúa la búsqueda de versiones de ID 8
+    ↓
+llega al final del catálogo
+    ↓
+caso base → retorna []
+```
+
+### Resultado
+
+```text
+Have You Ever Seen the Rain? - Joan Jett (1981)
+Have You Ever Seen the Rain? - Spin Doctors (1991)
+```
+
+La función utiliza recursividad porque se vuelve a llamar a sí misma para resolver el mismo problema sobre una versión encontrada. De esta manera, si una versión tuviera a su vez otras versiones derivadas, la misma lógica permitiría continuar recorriendo esas relaciones.
+
+
 
 
 - Función:
