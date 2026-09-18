@@ -1,102 +1,18 @@
 from src.config import TEMA
-from src.dominio.catalogo import crear_catalogo
-from src.dominio.recursion import listar_versiones_recursivas
-
+from src.dominio import (
+    crear_catalogo,
+    mostrar_catalogo,
+    mostrar_detalle,
+    buscar_cancion, 
+    mostrar_versiones,
+    pendiente
+)    
 
 TEMAS = {
     "pokedex": "Pokédex",
     "recetario": "Recetario",
     "musica": "Biblioteca musical",
 }
-
-
-def pendiente():
-    print("Todavía no está implementado. Completar en la entrega que corresponde.")
-
-
-def mostrar_catalogo(catalogo):
-    print("\n=== Catálogo de canciones ===")
-
-    for i, cancion in enumerate(catalogo, start=1):
-        print(f"{i}. {cancion}")
-
-
-def mostrar_detalle(catalogo):
-    mostrar_catalogo(catalogo)
-
-    opcion = input("\nElegí el número de una canción: ").strip()
-
-    if not opcion.isdigit():
-        print("Ingresá un número válido.")
-        return
-
-    indice = int(opcion) - 1
-
-    if indice < 0 or indice >= len(catalogo):
-        print("Número de canción inválido.")
-        return
-
-    cancion = catalogo[indice]
-
-    print("\n=== Detalle de la canción ===")
-    print(f"ID: {cancion.id}")
-    print(f"Título: {cancion.titulo}")
-    print(f"Artista: {cancion.artista}")
-    print(f"Álbum: {cancion.album}")
-    print(f"Género: {cancion.genero}")
-    print(f"Año: {cancion.anio}")
-    print(f"Duración (segundos): {cancion.duracion_seg}")
-
-
-def buscar_cancion(catalogo):
-    texto = input("\nIngresá el título o artista a buscar: ").strip().lower()
-
-    if not texto:
-        print("La búsqueda no puede estar vacía.")
-        return
-
-    encontrados = []
-
-    for cancion in catalogo:
-        if texto in cancion.titulo.lower() or texto in cancion.artista.lower():
-            encontrados.append(cancion)
-
-    if not encontrados:
-        print("No se encontraron canciones.")
-        return
-
-    print("\n=== Resultados de búsqueda ===")
-
-    for i, cancion in enumerate(encontrados, start=1):
-        print(f"{i}. {cancion}")
-
-
-def mostrar_versiones(catalogo):
-    mostrar_catalogo(catalogo)
-
-    opcion = input("\nElegí el número de la canción original: ").strip()
-
-    if not opcion.isdigit():
-        print("Ingresá un número válido.")
-        return
-
-    indice = int(opcion) - 1
-
-    if indice < 0 or indice >= len(catalogo):
-        print("Número de canción inválido.")
-        return
-
-    cancion = catalogo[indice]
-    versiones = listar_versiones_recursivas(catalogo, cancion.id)
-
-    print(f"\n=== Versiones de {cancion.titulo} ===")
-
-    if not versiones:
-        print("No se encontraron versiones.")
-        return
-
-    for version in versiones:
-        print(f"- {version}")
 
 
 def mostrar_menu():
