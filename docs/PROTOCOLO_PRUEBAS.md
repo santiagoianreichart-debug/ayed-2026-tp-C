@@ -8,11 +8,13 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 
 
 =======
-| P01 | E2 | Arrancar el programa y listar catálogo | dataset de la cátedra | lista no vacía, sin traceback |no corrido | |
+| ID | Entrega | Acción (pasos en el CLI) | Datos | Resultado esperado | Resultado | Notas |
+|---|---|---|---|---|---|---|
+| P01 | E2 | Arrancar el programa y listar catálogo | dataset de la cátedra | lista no vacía, sin traceback | no corrido | |
 | P02 | E2 | Buscar un ítem inexistente (id = -1) | id = -1 | mensaje claro, el menú sigue | no corrido | |
 | P03 | E2 | Recursión sobre un ítem con cover | id con derivados | imprime el resultado(s) | no corrido | |
-| P04 | E2 | Recursión sobre un ítem sin cover | id sin derivados | mensaje "no se encontró algún cover"  | no corrido | |
-| P05 | E2 | Ver detalle de un ítem existente  | número válido de catálogo | muestra todos los campos del ítem, sin error | no corrido | |
+| P04 | E2 | Recursión sobre un ítem sin cover | id sin derivados | mensaje "no se encontró algún cover" | no corrido | |
+| P05 | E2 | Ver detalle de un ítem existente | número válido de catálogo | muestra todos los campos del ítem, sin error | no corrido | |
 | P06 | E2 | Ver detalle con número fuera de rango | ej: número a ingresar = 999 | mensaje "Número de canción inválido.", el menú sigue | no corrido | |
 | P07 | E2 | Buscar por texto existente | texto = título o artista real | lista de coincidencias, no vacía | no corrido | |
 | P08 | E2 | Ingresar una opción de menú inexistente | opción = "10" | mensaje "Opción inválida.", el menú vuelve a mostrarse sin cerrar el programa | no corrido | |
