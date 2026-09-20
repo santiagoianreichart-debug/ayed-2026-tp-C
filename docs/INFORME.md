@@ -121,13 +121,6 @@ Have You Ever Seen the Rain? - Spin Doctors (1991)
 La función utiliza recursividad porque se vuelve a llamar a sí misma para resolver el mismo problema sobre una versión encontrada. De esta manera, si una versión tuviera a su vez otras versiones derivadas, la misma lógica permitiría continuar recorriendo esas relaciones.
 
 
-
-
-- Función:
-- Caso base:
-- Caso recursivo:
-- Traza de un ejemplo real del dataset:
-
 ## 4. TADs (E3)
 
 | TAD | Operaciones | Invariante |
