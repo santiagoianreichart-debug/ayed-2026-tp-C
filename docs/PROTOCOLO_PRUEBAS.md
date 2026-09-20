@@ -8,14 +8,14 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 
 | ID | Entrega | Acción (pasos en el CLI) | Datos | Resultado esperado | Resultado | Notas |
 | --- | --- | --- | --- | --- | --- | --- |
-| P01 | E2 | Arrancar el programa y listar catálogo | dataset de la cátedra | lista no vacía, sin traceback | | |
-| P02 | E2 | Buscar un ítem inexistente (id = -1) | id = -1 | mensaje claro, el menú sigue | | |
-| P03 | E2 | Recursión sobre un ítem con cover | id con derivados | imprime el resultado(s) | | |
-| P04 | E2 | Recursión sobre un ítem sin cover | id sin derivados | mensaje "no se encontró algún cover"  | | |
-| P05 | E2 | Ver detalle de un ítem existente  | número válido de catálogo | muestra todos los campos del ítem, sin error | | |
-| P06 | E2 | Ver detalle con número fuera de rango | ej: número a ingresar = 999 | mensaje "Número de canción inválido.", el menú sigue | | |
-| P07 | E2 | Buscar por texto existente | texto = título o artista real | lista de coincidencias, no vacía | | |
-| P08 | E2 | Ingresar una opción de menú inexistente | opción = "10" | mensaje "Opción inválida.", el menú vuelve a mostrarse sin cerrar el programa | | |
+| P01 | E2 | Arrancar el programa y listar catálogo | menú, ingresar 1 para el listado | lista no vacía, sin traceback | | |
+| P02 | E2 | Buscar un ítem inexistente | ingresar 3 para buscar una canción inexistente | mensaje "no se encuentra esa canción", el menú sigue | | |
+| P03 | E2 | Recursión sobre un ítem con cover | ingresar 5 y buscar una canción con covers | imprime el resultado(s) | | |
+| P04 | E2 | Recursión sobre un ítem sin cover | ingresar 5 y buscar una canción sin covers | mensaje "no se encontró algún cover"  | | |
+| P05 | E2 | Ver detalle de un ítem existente  | ingresar 2 y escribir una canción existente | muestra todos los campos del ítem, sin error | | |
+| P06 | E2 | Ver detalle con número fuera de rango | ingresar 2 y escribir una canción que no existe | mensaje "Título de canción inexistente.", el menú sigue | | |
+| P07 | E2 | Buscar un ítem existente | ingresar 3, buscar un título existente | lista de coincidencias, no vacía | | |
+| P08 | E2 | Ingresar una opción de menú inexistente | ingresar 10 | mensaje "Opción inválida.", el menú vuelve a mostrarse sin cerrar el programa | | |
 
 === Catálogo de canciones ===
 1. La Flaca - Jarabe de Palo (1996)
