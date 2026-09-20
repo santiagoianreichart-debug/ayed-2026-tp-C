@@ -14,8 +14,8 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 | P04 | E2 | Recursión sobre un ítem sin cover | id sin derivados | mensaje "no se encontró algún cover"  | | |
 | P05 | E2 | Ver detalle de un ítem existente  | número válido de catálogo | muestra todos los campos del ítem, sin error | | |
 | P06 | E2 | Ver detalle con número fuera de rango | ej: número a ingresar = 999 | mensaje "Número de canción inválido.", el menú sigue | | |
-| P07 | E2 | Buscar por texto existente (opción 3) | texto = título o artista real | lista de coincidencias, no vacía | | |
-| P08 | E2 | Ingresar una opción de menú inexistente | opción = "x" | mensaje "Opción inválida.", el menú vuelve a mostrarse sin cerrar el programa | | |
+| P07 | E2 | Buscar por texto existente | texto = título o artista real | lista de coincidencias, no vacía | | |
+| P08 | E2 | Ingresar una opción de menú inexistente | opción = "10" | mensaje "Opción inválida.", el menú vuelve a mostrarse sin cerrar el programa | | |
 
 === Catálogo de canciones ===
 1. La Flaca - Jarabe de Palo (1996)
