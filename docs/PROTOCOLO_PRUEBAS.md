@@ -32,5 +32,4 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 | P17 | E5 | Guardar CSV, salir, volver a entrar |  | los datos siguen |  |  |
 | P18 | E5 | Guardar binario y modificar un registro por id |  | al recargar, ese campo cambió |  |  |
 | P19 | E5 | Abrir un binario truncado o con magia mala | archivo basura | excepción de archivo inválido |  |  |
->>>
->>>> 421c11d (Actualiza el protocolo de pruebas)
+
