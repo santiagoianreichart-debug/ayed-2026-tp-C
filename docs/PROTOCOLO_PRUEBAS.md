@@ -39,7 +39,9 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 19. The Adults Are Talking - The Strokes (2020) | funciona como se esperaba |
 | P02 | E1 | Elegir un ítem inexistente | id = -1 | mensaje claro, el menú sigue |  -1
 Opción inválida. | funciona como se esperaba |
-| P03 | E2 | Operación recursiva sobre un ítem con cadena | ver consigna §3.3 | imprime la cadena completa | === Biblioteca musical — AyED C2 2026 ===
+| P03 | E2 | Operación recursiva sobre un ítem con cadena | ver consigna §3.3 | imprime la cadena completa | === Biblioteca musical —
+
+AyED C2 2026 ===
 1. Listar catálogo
 2. Ver detalle
 3. Buscar
@@ -117,16 +119,3 @@ Elegí el número de la canción original: 3
 
 === Versiones de Muriendo de Plena ===
 No se encontraron versiones. | funciono como se esperaba |
-| ID | Entrega | Acción (pasos en el CLI) | Datos | Resultado esperado | Resultado | Notas |
-| --- | --- | --- | --- | --- | --- | --- |
-| P09 | E3 | Agregar a la colección principal hasta el tope | equipo de 6 / equivalente | el séptimo falla con excepción propia |  |  |
-| P10 | E3 | Desapilar historial vacío | pila vacía | excepción propia, menú sigue |  |  |
-| P11 | E3 | Desencolar cola vacía | cola vacía | excepción propia, menú sigue |  |  |
-| P12 | E3 | Listar colección con el iterador | 2+ ítems | el orden coincide con las inserciones |  |  |
-| P13 | E4 | Búsqueda lineal de un nombre que existe |  | lo encuentra |  |  |
-| P14 | E4 | Búsqueda lineal de un nombre que no existe |  | no encontrado, sin traceback |  |  |
-| P15 | E4 | Búsqueda binaria con catálogo desordenado |  | avisa o reordena; no da un falso hit |  |  |
-| P16 | E4 | Ordenar por un criterio y después por otro |  | el orden cambia |  |  |
-| P17 | E5 | Guardar CSV, salir, volver a entrar |  | los datos siguen |  |  |
-| P18 | E5 | Guardar binario y modificar un registro por id |  | al recargar, ese campo cambió |  |  |
-| P19 | E5 | Abrir un binario truncado o con magia mala | archivo basura | excepción de archivo inválido |  |  |
