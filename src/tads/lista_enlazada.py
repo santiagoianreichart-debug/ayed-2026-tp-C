@@ -5,21 +5,21 @@ class ListaEnlazada:
     def __init__(self):
         self._cabeza = None
         self._tamanio = 0
-        #raise NotImplementedError
+        
 
     def esta_vacia(self):
         return self._cabeza is None
-        #raise NotImplementedError
+        
 
     def tamanio(self):
         return self._tamanio
-        #raise NotImplementedError
+        
 
     def insertar_al_inicio(self, dato):
         nuevo = Nodo(dato, self._cabeza)
         self._cabeza = nuevo
         self._tamanio += 1
-        #raise NotImplementedError
+        
 
     def insertar_al_final(self, dato):
         nuevo = Nodo(dato)
@@ -31,7 +31,7 @@ class ListaEnlazada:
                 actual = actual.siguiente
             actual.siguiente = nuevo
         self._tamanio += 1
-        #raise NotImplementedError
+        
 
     def insertar_ordenado(self, dato, clave):
         raise NotImplementedError
@@ -52,7 +52,7 @@ class ListaEnlazada:
                 self._tamanio -= 1 
                 return         
             actual = actual.siguiente
-        #raise NotImplementedError
+        
 
     def buscar(self, dato):
         actual = self._cabeza
@@ -61,11 +61,11 @@ class ListaEnlazada:
                 return actual
             actual = actual.siguiente
         return None
-        #raise NotImplementedError
+        
 
     def __iter__(self):
         return self._Iterador(self._cabeza)
-        #raise NotImplementedError
+        
 
     class _Iterador:
         def __init__(self, cabeza):

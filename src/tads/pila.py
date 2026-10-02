@@ -6,11 +6,11 @@ class Pila:
 
     def __init__(self):
         self._items = ListaEnlazada()
-        #raise NotImplementedError
+        
 
     def apilar(self, dato):
         self._items.insertar_al_inicio(dato)
-        #raise NotImplementedError
+        
 
     def desapilar(self):
         if self.esta_vacia():
@@ -18,14 +18,14 @@ class Pila:
         tope = self._items._cabeza.dato
         self._items.eliminar(tope)
         return tope
-        #raise NotImplementedError
+        
 
     def ver_tope(self):
         if self.esta_vacia():
             raise PilaVaciaError("La pila está vacía")
         return self._items._cabeza.dato
-        #raise NotImplementedError
+        
 
     def esta_vacia(self):
         return self._items.esta_vacia()
-        #raise NotImplementedError
+        
