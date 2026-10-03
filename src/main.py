@@ -187,6 +187,7 @@ def menu_playlist(catalogo, playlist):
         else:
             print("Opción inválida.")
 
+
 def main():
     if TEMA not in TEMAS:
         print("Seteá TEMA en src/config.py: 'pokedex', 'recetario' o 'musica'.")
@@ -215,21 +216,24 @@ def main():
         elif opcion == "3":
             buscar_cancion(catalogo)
 
+        elif opcion == "4":
+            pendiente()
+
         elif opcion == "5":
             mostrar_versiones(catalogo)
 
+<<<<<<< HEAD
+=======
+        elif opcion == "6":
+            menu_playlist(catalogo, playlist)
+
+>>>>>>> b2f949d (Corrijo menu de E3)
         elif opcion == "7":
             menu_historial(catalogo, historial)
 
         elif opcion == "8":
             menu_cola(catalogo, cola, historial)
 
-        elif opcion == "4":
-            pendiente()
-
-        elif opcion == "6":
-            menu_playlist(catalogo, playlist)
-        
         elif opcion == "9":
             pendiente()
 
