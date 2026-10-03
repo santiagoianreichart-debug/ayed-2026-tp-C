@@ -222,12 +222,9 @@ def main():
         elif opcion == "5":
             mostrar_versiones(catalogo)
 
-<<<<<<< HEAD
-=======
         elif opcion == "6":
             menu_playlist(catalogo, playlist)
 
->>>>>>> b2f949d (Corrijo menu de E3)
         elif opcion == "7":
             menu_historial(catalogo, historial)
 
