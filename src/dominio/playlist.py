@@ -13,7 +13,7 @@ class Playlist:
     def agregar(self, cancion):
         if self.esta_llena():
             raise ColeccionLlenaError(
-                "El equipo está lleno (máximo 6). No se puede agregar más."
+                "La playlist está llena (máximo 6). No se puede agregar más."
             )
 
         self._canciones.insertar_al_final(cancion)

@@ -45,7 +45,7 @@ def mostrar_menu():
     print("3. Buscar")
     print("4. Ordenar")
     print("5. Operación recursiva")
-    print("6. Colección principal (equipo / menú / playlist)")
+    print("6. Colección principal (playlist)")
     print("7. Historial (pila)")
     print("8. Cola")
     print("9. Guardar / cargar archivos")
@@ -155,7 +155,7 @@ def menu_playlist(catalogo, playlist):
                 print("No se encontró ese elemento.")
 
             except ColeccionLlenaError:
-                print("El equipo está lleno (máximo 6). No se puede agregar más.")
+                print("La playlist está llena (máximo 6). No se puede agregar más.")
 
             except ValueError:
                 print("El ID debe ser un número.")
@@ -204,7 +204,7 @@ def main():
         opcion = input("> ").strip()
 
         if opcion == "0":
-            print("Chau.")
+            print("Se ha cerrado la Biblioteca Musical. Tenga un buen día.")
 
         elif opcion == "1":
             mostrar_catalogo(catalogo)
@@ -218,6 +218,7 @@ def main():
         elif opcion == "5":
             mostrar_versiones(catalogo)
 
+        elif opcion == "7":
             menu_historial(catalogo, historial)
 
         elif opcion == "8":
