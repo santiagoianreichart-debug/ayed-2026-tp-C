@@ -1,4 +1,4 @@
-from nodo import Nodo
+from src.tads.nodo import Nodo
 class ListaEnlazada:
     """TAD lista enlazada simple. No usar list de Python por debajo."""
 
