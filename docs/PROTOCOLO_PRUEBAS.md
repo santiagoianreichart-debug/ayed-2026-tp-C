@@ -21,7 +21,7 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 
 | ID | Entrega | Acción (pasos en el CLI) | Datos | Resultado esperado | Resultado | Notas |
 | --- | --- | --- | --- | --- | --- | --- |
-| P09 | E3 | Agregar a la colección principal hasta el tope | playlist de 6 canciones | el séptimo falla con excepción propia | pasa | La playlist está llena (máximo 6). No se puede agregar más. |
+| P09 | E3 | Agregar a la colección principal hasta el tope | playlist de 6 canciones | el séptimo falla con excepción propia | pasa | mensaje: "La playlist está llena (máximo 6). No se puede agregar más." |
 | P10 | E3 | Desapilar historial vacío | pila vacía | excepción propia, menú sigue | pasa | mensaje: No hay acciones en el historial para deshacer. |
 | P11 | E3 | Desencolar cola vacía | cola vacía | excepción propia, menú sigue | pasa | mensaje: "No hay elementos en la cola." |
 | P12 | E3 | Listar colección con el iterador | 2+ ítems | el orden coincide con las inserciones | pasa | Agregadas IDs 1, 6, 8; listadas en el mismo orden pero con los números= 1, 2, 3 |
