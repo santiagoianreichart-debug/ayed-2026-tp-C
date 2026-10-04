@@ -6,51 +6,24 @@ Leyenda de resultado: `pasa` / `no pasa` / `no corrido`.
 
 Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila, cola, archivos, recursión, búsquedas).
 
-=======
-
-| ID | Entrega | Acción (pasos en el CLI) | Datos | Resultado esperado | Resultado | Notas |
-
-|---|---|---|---|---|---|---|
-
-| P01 | E2 | Arrancar el programa y listar catálogo | dataset de la cátedra | lista no vacía, sin traceback | pasa | |
-
-| P02 | E2 | Buscar un ítem inexistente (id = -1) | id = -1 | mensaje claro, el menú sigue | pasa | mensaje: "No se encontraron canciones." |
-
-| P03 | E2 | Recursión sobre un ítem con cover | id con derivados | imprime el resultado(s) | pasa | |
-
-| P04 | E2 | Recursión sobre un ítem sin cover | id sin derivados | mensaje "No se encontraron versiones." | pasa |  |
-
-| P05 | E2 | Ver detalle de un ítem existente | número válido de catálogo | muestra todos los campos del ítem, sin error | pasa | |
-
-| P06 | E2 | Ver detalle con número fuera de rango | ej: número a ingresar = 999 | mensaje "Número de canción inválido.", el menú sigue | pasa | |
-
-| P07 | E2 | Buscar por texto existente | texto = título o artista real | lista de coincidencias, no vacía | Pasa | |
-
-| P08 | E2 | Ingresar una opción de menú inexistente | opción = "10" | mensaje "Opción inválida.", el menú vuelve a mostrarse sin cerrar el programa | pasa | |
-
-| ID | Entrega | Acción (pasos en el CLI) | Datos | Resultado esperado | Resultado | Notas |
-
-| --- | --- | --- | --- | --- | --- | --- |
-
-| P09 | E3 | Agregar a la colección principal hasta el tope | playlist de 6 canciones | el séptimo falla con excepción propia | pasa | Se agregaron 6 canciones. Al intentar agregar una séptima, mostró el mensaje: "El equipo está lleno (máximo 6). No se puede agregar más." |
-
-| P10 | E3 | Desapilar historial vacío | pila vacía | excepción propia, menú sigue | pasa | Se ingresó a Historial y se seleccionó "Deshacer última reproducción" con la pila vacía. Mostró el mensaje: "No hay acciones en el historial para deshacer." |
-
-| P11 | E3 | Desencolar cola vacía | cola vacía | excepción propia, menú sigue | pasa | Se ingresó a Cola y se seleccionó "Reproducir siguiente" con la cola vacía. Mostró el mensaje: "No hay elementos en la cola." |
-
-| P12 | E3 | Listar colección con el iterador | 2+ ítems | el orden coincide con las inserciones | pasa | Se agregaron las canciones con ID 1, 6 y 8 y se seleccionó "Mostrar playlist". Las canciones se mostraron en el mismo orden de inserción, numeradas 1, 2 y 3. |
-
-
-| P13 | E4 | Búsqueda lineal de un nombre que existe |  | lo encuentra | no corrido |  |
-
-| P14 | E4 | Búsqueda lineal de un nombre que no existe |  | no encontrado, sin traceback | no corrido |  |
-
-| P15 | E4 | Búsqueda binaria con catálogo desordenado |  | avisa o reordena; no da un falso hit | no corrido |  |
-
-| P16 | E4 | Ordenar por un criterio y después por otro |  | el orden cambia | no corrido |  |
-
-| P17 | E5 | Guardar CSV, salir, volver a entrar |  | los datos siguen | no corrido |  |
-
-| P18 | E5 | Guardar binario y modificar un registro por id |  | al recargar, ese campo cambió | no corrido |  |
-
-| P19 | E5 | Abrir un binario truncado o con magia mala | archivo basura | excepción de archivo inválido | no corrido |  |
+| ID  | Entrega | Acción (pasos en el CLI)                       | Datos                         | Resultado esperado                                                            | Resultado  | Notas                                                                                                                                                         |
+| --- | ------- | ---------------------------------------------- | ----------------------------- | ----------------------------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| P01 | E2      | Arrancar el programa y listar catálogo         | dataset de la cátedra         | lista no vacía, sin traceback                                                 | pasa       |                                                                                                                                                               |
+| P02 | E2      | Buscar un ítem inexistente (id = -1)           | id = -1                       | mensaje claro, el menú sigue                                                  | pasa       | mensaje: "No se encontraron canciones."                                                                                                                       |
+| P03 | E2      | Recursión sobre un ítem con cover              | id con derivados              | imprime el resultado(s)                                                       | pasa       |                                                                                                                                                               |
+| P04 | E2      | Recursión sobre un ítem sin cover              | id sin derivados              | mensaje "No se encontraron versiones."                                        | pasa       |                                                                                                                                                               |
+| P05 | E2      | Ver detalle de un ítem existente               | número válido de catálogo     | muestra todos los campos del ítem, sin error                                  | pasa       |                                                                                                                                                               |
+| P06 | E2      | Ver detalle con número fuera de rango          | ej: número a ingresar = 999   | mensaje "Número de canción inválido.", el menú sigue                          | pasa       |                                                                                                                                                               |
+| P07 | E2      | Buscar por texto existente                     | texto = título o artista real | lista de coincidencias, no vacía                                              | pasa       |                                                                                                                                                               |
+| P08 | E2      | Ingresar una opción de menú inexistente        | opción = "10"                 | mensaje "Opción inválida.", el menú vuelve a mostrarse sin cerrar el programa | pasa       |                                                                                                                                                               |
+| P09 | E3      | Agregar a la colección principal hasta el tope | playlist de 6 canciones       | el séptimo falla con excepción propia                                         | pasa       | Se agregaron 6 canciones. Al intentar agregar una séptima, mostró el mensaje: "El equipo está lleno (máximo 6). No se puede agregar más."                     |
+| P10 | E3      | Desapilar historial vacío                      | pila vacía                    | excepción propia, menú sigue                                                  | pasa       | Se ingresó a Historial y se seleccionó "Deshacer última reproducción" con la pila vacía. Mostró el mensaje: "No hay acciones en el historial para deshacer."  |
+| P11 | E3      | Desencolar cola vacía                          | cola vacía                    | excepción propia, menú sigue                                                  | pasa       | Se ingresó a Cola y se seleccionó "Reproducir siguiente" con la cola vacía. Mostró el mensaje: "No hay elementos en la cola."                                 |
+| P12 | E3      | Listar colección con el iterador               | 2+ ítems                      | el orden coincide con las inserciones                                         | pasa       | Se agregaron las canciones con ID 1, 6 y 8 y se seleccionó "Mostrar playlist". Las canciones se mostraron en el mismo orden de inserción, numeradas 1, 2 y 3. |
+| P13 | E4      | Búsqueda lineal de un nombre que existe        |                               | lo encuentra                                                                  | no corrido |                                                                                                                                                               |
+| P14 | E4      | Búsqueda lineal de un nombre que no existe     |                               | no encontrado, sin traceback                                                  | no corrido |                                                                                                                                                               |
+| P15 | E4      | Búsqueda binaria con catálogo desordenado      |                               | avisa o reordena; no da un falso hit                                          | no corrido |                                                                                                                                                               |
+| P16 | E4      | Ordenar por un criterio y después por otro     |                               | el orden cambia                                                               | no corrido |                                                                                                                                                               |
+| P17 | E5      | Guardar CSV, salir, volver a entrar            |                               | los datos siguen                                                              | no corrido |                                                                                                                                                               |
+| P18 | E5      | Guardar binario y modificar un registro por id |                               | al recargar, ese campo cambió                                                 | no corrido |                                                                                                                                                               |
+| P19 | E5      | Abrir un binario truncado o con magia mala     | archivo basura                | excepción de archivo inválido                                                 | no corrido |                                                                                                                                                               |
