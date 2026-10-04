@@ -1,27 +1,66 @@
 from src.dominio.cancion import Cancion
+from src.tads.lista_enlazada import ListaEnlazada
 
 
 def crear_catalogo():
-    canciones = [
-        Cancion(1, "La Flaca", "Jarabe de Palo", "La Flaca", "Pop/Rock en español", 1996, 240),
-        Cancion(2, "Sin Documentos", "Los Rodríguez", "Sin Documentos", "Rock/Pop Rock", 1993, 260),
-        Cancion(3, "Muriendo de Plena", "Rubén Rada", "Quién va a cantar", "Salsa/Tropical", 2000, 210),
-        Cancion(4, "Microdancing", "Babasónicos", "Mucho", "Rock alternativo/Indie", 2008, 200),
-        Cancion(5, "11 y 6", "Fito Páez", "Giros", "Trova rosarina/Pop Rock", 1985, 230),
-        Cancion(18, "11 y 6 (En Vivo)", "Fito Páez", "No Sé Si Es Baires o Madrid", "Trova rosarina/Pop Rock", 2008, 238, version_de=5),
-        Cancion(6, "Just What I Needed", "The Cars", "The Cars", "Rock", 1978, 236),
-        Cancion(7, "Sultans of Swing", "Dire Straits", "Dire Straits", "Rock", 1978, 348),
-        Cancion(8, "Have You Ever Seen the Rain?", "Creedence Clearwater Revival", "Pendulum", "Rock", 1970, 160),
-        Cancion(16, "Have You Ever Seen the Rain?", "Joan Jett", "I Love Rock 'n Roll", "Rock", 1981, 174, version_de=8),
-        Cancion(17, "Have You Ever Seen the Rain?", "Spin Doctors", "If the River Was Whiskey", "Rock", 1991, 190, version_de=8),
-        Cancion(9, "Beat It", "Michael Jackson", "Thriller", "Pop/Rock", 1982, 258),
-        Cancion(10, "Enjoy the Silence", "Depeche Mode", "Violator", "Synth-pop", 1990, 374),
-        Cancion(11, "Boulevard of Broken Dreams", "Green Day", "American Idiot", "Rock", 2004, 262),
-        Cancion(12, "Africa", "Toto", "Toto IV", "Rock", 1982, 295),
-        Cancion(19, "Africa", "Weezer", "Weezer (Teal Album)", "Rock", 2019, 241, version_de=12),
-        Cancion(13, "Ride", "Twenty One Pilots", "Blurryface", "Alternative", 2015, 214),
-        Cancion(14, "You Talk", "Babyshambles", "Shotter's Nation", "Indie Rock", 2007, 190),
-        Cancion(15, "The Adults Are Talking", "The Strokes", "The New Abnormal", "Indie Rock", 2020, 309),
-    ]
+    catalogo = ListaEnlazada()
 
-    return canciones
+    catalogo.insertar_al_final(
+        Cancion(1, "La Flaca", "Jarabe de Palo", "La Flaca", "Pop/Rock en español", 1996, 240)
+    )
+    catalogo.insertar_al_final(
+        Cancion(2, "Sin Documentos", "Los Rodríguez", "Sin Documentos", "Rock/Pop Rock", 1993, 260)
+    )
+    catalogo.insertar_al_final(
+        Cancion(3, "Muriendo de Plena", "Rubén Rada", "Quién va a cantar", "Salsa/Tropical", 2000, 210)
+    )
+    catalogo.insertar_al_final(
+        Cancion(4, "Microdancing", "Babasónicos", "Mucho", "Rock alternativo/Indie", 2008, 200)
+    )
+    catalogo.insertar_al_final(
+        Cancion(5, "11 y 6", "Fito Páez", "Giros", "Trova rosarina/Pop Rock", 1985, 230)
+    )
+    catalogo.insertar_al_final(
+        Cancion(18, "11 y 6 (En Vivo)", "Fito Páez", "No Sé Si Es Baires o Madrid", "Trova rosarina/Pop Rock", 2008, 238, version_de=5)
+    )
+    catalogo.insertar_al_final(
+        Cancion(6, "Just What I Needed", "The Cars", "The Cars", "Rock", 1978, 236)
+    )
+    catalogo.insertar_al_final(
+        Cancion(7, "Sultans of Swing", "Dire Straits", "Dire Straits", "Rock", 1978, 348)
+    )
+    catalogo.insertar_al_final(
+        Cancion(8, "Have You Ever Seen the Rain?", "Creedence Clearwater Revival", "Pendulum", "Rock", 1970, 160)
+    )
+    catalogo.insertar_al_final(
+        Cancion(16, "Have You Ever Seen the Rain?", "Joan Jett", "I Love Rock 'n Roll", "Rock", 1981, 174, version_de=8)
+    )
+    catalogo.insertar_al_final(
+        Cancion(17, "Have You Ever Seen the Rain?", "Spin Doctors", "If the River Was Whiskey", "Rock", 1991, 190, version_de=8)
+    )
+    catalogo.insertar_al_final(
+        Cancion(9, "Beat It", "Michael Jackson", "Thriller", "Pop/Rock", 1982, 258)
+    )
+    catalogo.insertar_al_final(
+        Cancion(10, "Enjoy the Silence", "Depeche Mode", "Violator", "Synth-pop", 1990, 374)
+    )
+    catalogo.insertar_al_final(
+        Cancion(11, "Boulevard of Broken Dreams", "Green Day", "American Idiot", "Rock", 2004, 262)
+    )
+    catalogo.insertar_al_final(
+        Cancion(12, "Africa", "Toto", "Toto IV", "Rock", 1982, 295)
+    )
+    catalogo.insertar_al_final(
+        Cancion(19, "Africa", "Weezer", "Weezer (Teal Album)", "Rock", 2019, 241, version_de=12)
+    )
+    catalogo.insertar_al_final(
+        Cancion(13, "Ride", "Twenty One Pilots", "Blurryface", "Alternative", 2015, 214)
+    )
+    catalogo.insertar_al_final(
+        Cancion(14, "You Talk", "Babyshambles", "Shotter's Nation", "Indie Rock", 2007, 190)
+    )
+    catalogo.insertar_al_final(
+        Cancion(15, "The Adults Are Talking", "The Strokes", "The New Abnormal", "Indie Rock", 2020, 309)
+    )
+
+    return catalogo
