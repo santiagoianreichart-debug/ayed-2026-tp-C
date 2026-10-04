@@ -122,15 +122,25 @@ La función utiliza recursividad porque se vuelve a llamar a sí misma para reso
 
 
 ## 4. TADs (E3)
-__TAD__ = Tipo Abstracto de Datos
+
+**__TAD__** = Tipo Abstracto de Datos
 
 | TAD | Operaciones | Invariante |
+
 | --- | --- | --- |
-| ListaEnlazada | esta_vacia(), tamanio(), insertar_al_inicio(dato), insertar_al_final(dato), eliminar(dato), buscar(dato), iter() o Iterador | _tamanio equivale a la cantidad de nodos creados desde _cabeza. Si _cabeza es Nulo, entonces _tamanio = Cero. El último nodo tiene siguiente = Nulo y no hay ciclos. eliminar quita solo la primera aparición del dato. |
+
+| ListaEnlazada | esta_vacia(), tamanio(), insertar_al_inicio(dato), insertar_al_final(dato), eliminar(dato), buscar(dato), __iter__(), __len__(), __getitem__(indice) | _tamanio coincide con la cantidad de nodos actualmente enlazados desde _cabeza. Si _cabeza es None, entonces _tamanio = 0. El último nodo tiene siguiente = None y no hay ciclos. eliminar quita solo la primera aparición del dato. |
+
 | Pila | apilar(dato), desapilar(), ver_tope(), esta_vacia() | Es LIFO, se inserta y se extrae siempre por el mismo extremo (el inicio de la lista), así que el tope es el último elemento apilado. desapilar y ver_tope lanzan PilaVaciaError si está vacía. No modifica el estado si falla. |
+
 | Cola | encolar(dato), desencolar(), ver_frente(), esta_vacia() | Es FIFO, se inserta al final y se extrae por el inicio, así que el frente es el elemento más antiguo. desencolar y ver_frente lanzan ColaVaciaError si está vacía. No modifica el estado si falla. |
 
-Dónde se usa cada uno en el dominio.
+Dónde se usa cada uno en el dominio:
+
+* ListaEnlazada: se utiliza como estructura base del catálogo de canciones y de la colección principal (playlist). El catálogo se recorre mediante su iterador.
+* Pila: se utiliza para representar el historial de reproducciones y permite deshacer la última reproducción.
+* Cola: se utiliza para representar la cola de reproducción y mantiene el orden en que fueron agregadas las canciones.
+
 
 ## 5. Complejidad (E4)
 
@@ -155,3 +165,4 @@ Mediciones (`time.perf_counter`):
 | Integrante | Qué hizo | Qué puede defender |
 | --- | --- | --- |
 |  |  |  |
+
