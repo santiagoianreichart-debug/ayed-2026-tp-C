@@ -30,9 +30,9 @@ def ordenar_por_anio_desc(coleccion, obtener_clave):
     según la clave indicada.
     """
     for elemento in coleccion:
-        if not isinstance(obtener_clave(elemento), (int, float)):
+        if not isinstance(obtener_clave(elemento), (int)):
             raise TypeError(
-                "La clave debe ser numérica."
+                "El año debe ser en números enteros."
             )
 
     n = len(coleccion)
