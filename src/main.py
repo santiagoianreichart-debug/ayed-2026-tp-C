@@ -27,6 +27,8 @@ from src.excepciones import (
     ColeccionLlenaError
 )
 
+from src.algoritmos.busqueda import busqueda_lineal, busqueda_binaria 
+from src.algoritmos.ordenamiento import ordenar_seleccion, ordenar_insercion 
 
 TEMAS = {
     "pokedex": "Pokédex",
