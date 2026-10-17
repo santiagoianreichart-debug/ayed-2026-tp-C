@@ -24,3 +24,29 @@ def ordenar_insercion(coleccion, obtener_clave):
             j -= 1         
         coleccion[j + 1] = actual               
     return coleccion 
+
+def ordenar_por_anio_desc(coleccion, obtener_clave):
+    """ Ordena la colección por año de mayor a menor
+    según la clave indicada.
+    """
+    for elemento in coleccion:
+        if not isinstance(obtener_clave(elemento), (int, float)):
+            raise TypeError(
+                "La clave debe ser numérica."
+            )
+
+    n = len(coleccion)
+
+    for i in range(n - 1):
+        pos_max = i
+
+        for j in range(i + 1, n):
+            if obtener_clave(coleccion[j]) > obtener_clave(coleccion[pos_max]):
+                pos_max = j
+
+        coleccion[i], coleccion[pos_max] = (
+            coleccion[pos_max],
+            coleccion[i]
+        )
+
+    return coleccion
