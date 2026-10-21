@@ -1,3 +1,4 @@
+
 from src.dominio.playlist import Playlist
 from src.config import TEMA
 from src.dominio import (
@@ -6,29 +7,28 @@ from src.dominio import (
     mostrar_detalle,
     buscar_cancion,
     mostrar_versiones,
-    pendiente
+    pendiente,
 )
-
 from src.dominio.reproduccion import (
     buscar_cancion_por_id,
     reproducir_cancion,
     deshacer_reproduccion,
     agregar_a_cola,
-    reproducir_siguiente
+    reproducir_siguiente,
 )
-
 from src.tads.pila import Pila
 from src.tads.cola import Cola
-
 from src.excepciones import (
     ItemNoEncontradoError,
     PilaVaciaError,
     ColaVaciaError,
-    ColeccionLlenaError
+    ColeccionLlenaError,
 )
-
-from src.algoritmos.busqueda import busqueda_lineal, busqueda_binaria 
-from src.algoritmos.ordenamiento import ordenar_seleccion, ordenar_insercion 
+from src.algoritmos.busqueda import busqueda_binaria
+from src.algoritmos.ordenamiento import (
+    ordenar_seleccion,
+    ordenar_insercion,
+)
 
 TEMAS = {
     "pokedex": "Pokédex",
@@ -52,6 +52,92 @@ def mostrar_menu():
     print("8. Cola")
     print("9. Guardar / cargar archivos")
     print("0. Salir")
+
+
+def mostrar_resultados(titulo, canciones):
+    print(f"\n=== {titulo} ===")
+
+    if not canciones:
+        print("No se encontraron canciones.")
+        return
+
+    for i, cancion in enumerate(canciones, start=1):
+        print(f"{i}. {cancion}")
+
+
+def menu_busqueda_binaria(catalogo):
+    texto = input(
+        "\nIngresá el título exacto para la búsqueda binaria: "
+    ).strip().casefold()
+
+    if not texto:
+        print("La búsqueda no puede estar vacía.")
+        return
+
+    # Se convierte la lista enlazada a una lista de Python.
+    # Luego se ordena la copia por título antes de buscar.
+    canciones = list(catalogo)
+    ordenar_insercion(canciones, lambda cancion: cancion.titulo.casefold())
+
+    print(
+        "Se ordenó una copia del catálogo por título "
+        "para realizar la búsqueda binaria."
+    )
+
+    encontrada = busqueda_binaria(
+        canciones,
+        texto,
+        lambda cancion: cancion.titulo.casefold(),
+    )
+
+    if encontrada is None:
+        print("No se encontró una canción con ese título.")
+    else:
+        print(f"Canción encontrada: {encontrada}")
+
+
+def menu_ordenamiento(catalogo):
+    while True:
+        print("\n=== Ordenamiento del catálogo (E4) ===")
+        print("1. Selección por título")
+        print("2. Inserción por artista")
+        print("3. Inserción por año")
+        print("4. Búsqueda binaria por título")
+        print("0. Volver")
+
+        opcion = input("> ").strip()
+
+        if opcion == "0":
+            return
+
+        canciones = list(catalogo)
+
+        if opcion == "1":
+            ordenar_seleccion(
+                canciones,
+                lambda cancion: cancion.titulo.casefold(),
+            )
+            mostrar_resultados("Catálogo ordenado por título (selección)", canciones)
+
+        elif opcion == "2":
+            ordenar_insercion(
+                canciones,
+                lambda cancion: cancion.artista.casefold(),
+            )
+            mostrar_resultados("Catálogo ordenado por artista (inserción)", canciones)
+
+        elif opcion == "3":
+            ordenar_insercion(
+                canciones,
+                lambda cancion: cancion.anio,
+            )
+            mostrar_resultados("Catálogo ordenado por año (inserción)", canciones)
+
+        elif opcion == "4":
+            menu_busqueda_binaria(catalogo)
+
+        else:
+            print("Opción inválida.")
 
 
 def menu_historial(catalogo, historial):
@@ -196,7 +282,6 @@ def main():
         return
 
     catalogo = crear_catalogo()
-
     historial = Pila()
     cola = Cola()
     playlist = Playlist()
@@ -219,7 +304,7 @@ def main():
             buscar_cancion(catalogo)
 
         elif opcion == "4":
-            pendiente()
+            menu_ordenamiento(catalogo)
 
         elif opcion == "5":
             mostrar_versiones(catalogo)
