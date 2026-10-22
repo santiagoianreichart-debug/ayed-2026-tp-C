@@ -25,34 +25,59 @@ def ordenar_insercion(coleccion, obtener_clave):
         coleccion[j + 1] = actual               
     return coleccion 
 
-def busqueda_ternaria(coleccion, clave, obtener_clave):
-    """
-    Busca 'clave' mediante búsqueda ternaria.
-    La colección debe estar ordenada según obtener_clave.
-    Devuelve el elemento encontrado o None.
-    """
-    izquierda = 0
-    derecha = len(coleccion) - 1
+def ordenar_quicksort(coleccion, obtener_clave):
+    """Ordenamiento Quick Sort con pivote de mediana de tres.
+    Ordena la colección in place (ascendente)."""
 
-    while izquierda <= derecha:
+    def mediana_de_tres(inicio, fin):
+        medio = (inicio + fin) // 2
 
-        tercio1 = izquierda + (derecha - izquierda) // 3
-        tercio2 = derecha - (derecha - izquierda) // 3
+        a = obtener_clave(coleccion[inicio])
+        b = obtener_clave(coleccion[medio])
+        c = obtener_clave(coleccion[fin])
 
-        if obtener_clave(coleccion[tercio1]) == clave:
-            return coleccion[tercio1]
-
-        if obtener_clave(coleccion[tercio2]) == clave:
-            return coleccion[tercio2]
-
-        if clave < obtener_clave(coleccion[tercio1]):
-            derecha = tercio1 - 1
-
-        elif clave > obtener_clave(coleccion[tercio2]):
-            izquierda = tercio2 + 1
-
+        if (a <= b <= c) or (c <= b <= a):
+            return medio
+        elif (b <= a <= c) or (c <= a <= b):
+            return inicio
         else:
-            izquierda = tercio1 + 1
-            derecha = tercio2 - 1
+            return fin
 
-    return None
+    def quicksort(inicio, fin):
+
+        if inicio >= fin:
+            return
+
+        pivote_idx = mediana_de_tres(inicio, fin)
+
+        coleccion[pivote_idx], coleccion[fin] = (
+            coleccion[fin],
+            coleccion[pivote_idx]
+        )
+
+        pivote = obtener_clave(coleccion[fin])
+
+        i = inicio - 1
+
+        for j in range(inicio, fin):
+
+            if obtener_clave(coleccion[j]) <= pivote:
+                i += 1
+                coleccion[i], coleccion[j] = (
+                    coleccion[j],
+                    coleccion[i]
+                )
+
+        coleccion[i + 1], coleccion[fin] = (
+            coleccion[fin],
+            coleccion[i + 1]
+        )
+
+        pos_pivote = i + 1
+
+        quicksort(inicio, pos_pivote - 1)
+        quicksort(pos_pivote + 1, fin)
+
+    quicksort(0, len(coleccion) - 1)
+
+    return coleccion
