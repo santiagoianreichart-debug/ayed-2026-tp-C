@@ -199,8 +199,14 @@ Dónde se usa cada uno en el dominio:
 ## 5. Complejidad (E4)
 
 | Operación | Tiempo | Espacio | Por qué |
-| --------- | ------ | ------- | ------- |
-|           |        |         |         |
+| --------- | ------- | -------- | ------- |
+| Listar catálogo | O(n) | O(1) | iterador |
+| Búsqueda lineal | O(n) en el peor / O(1) en el mejor | O(1) |  |
+| Búsqueda binaria | O(log n) | O(1) |  |
+| Ordenar por selección | O(n²) siempre | O(1) | Dos bucles anidados |
+| Ordenar por inserción | O(n) mejor / O(n²) peor y promedio | O(1) |  |
+| Ver detalle de un ítem | O(n) o O(1) | O(1) |  |
+| - |  | |  |
 
 Mediciones (`time.perf_counter`):
 
