@@ -25,28 +25,34 @@ def ordenar_insercion(coleccion, obtener_clave):
         coleccion[j + 1] = actual               
     return coleccion 
 
-def ordenar_por_anio_desc(coleccion, obtener_clave):
-    """ Ordena la colección por año de mayor a menor
-    según la clave indicada.
+def busqueda_ternaria(coleccion, clave, obtener_clave):
     """
-    for elemento in coleccion:
-        if not isinstance(obtener_clave(elemento), (int)):
-            raise TypeError(
-                "El año debe ser en números enteros."
-            )
+    Busca 'clave' mediante búsqueda ternaria.
+    La colección debe estar ordenada según obtener_clave.
+    Devuelve el elemento encontrado o None.
+    """
+    izquierda = 0
+    derecha = len(coleccion) - 1
 
-    n = len(coleccion)
+    while izquierda <= derecha:
 
-    for i in range(n - 1):
-        pos_max = i
+        tercio1 = izquierda + (derecha - izquierda) // 3
+        tercio2 = derecha - (derecha - izquierda) // 3
 
-        for j in range(i + 1, n):
-            if obtener_clave(coleccion[j]) > obtener_clave(coleccion[pos_max]):
-                pos_max = j
+        if obtener_clave(coleccion[tercio1]) == clave:
+            return coleccion[tercio1]
 
-        coleccion[i], coleccion[pos_max] = (
-            coleccion[pos_max],
-            coleccion[i]
-        )
+        if obtener_clave(coleccion[tercio2]) == clave:
+            return coleccion[tercio2]
 
-    return coleccion
+        if clave < obtener_clave(coleccion[tercio1]):
+            derecha = tercio1 - 1
+
+        elif clave > obtener_clave(coleccion[tercio2]):
+            izquierda = tercio2 + 1
+
+        else:
+            izquierda = tercio1 + 1
+            derecha = tercio2 - 1
+
+    return None
