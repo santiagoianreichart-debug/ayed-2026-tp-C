@@ -197,31 +197,36 @@ Dónde se usa cada uno en el dominio:
 * Cola: se utiliza para representar la cola de reproducción y mantiene el orden en que fueron agregadas las canciones.
 
 ## 5. Complejidad (E4)
+## 5. Complejidad (E4)
 
-| Operación | Tiempo | Espacio | Por qué |
-| --------- | ------- | -------- | ------- |
-| Listar catálogo | O(n) | O(1) | Recorre las canciones una por una para mostrarlas|
-| Búsqueda lineal | O(n) en el peor / O(1) en el mejor | O(1) | En el peor caso, revisa todas las canciones hasta encontrar la buscada o determinar que no existe. |
-| Búsqueda binaria | O(log n) | O(1) | En cada paso descarta aproximadamente la mitad de los elementos. Requiere una colección ordenada y acceso eficiente por índice. |
-| Ordenar por selección | O(n²) siempre | O(1) | Compara los elementos para encontrar el menor y ubicarlo en su posición. |
-| Ordenar por inserción | O(n) mejor / O(n²) peor y promedio | O(1) |Puede desplazar muchos elementos para insertar cada canción donde corresponde. Si ya está ordenada, el tiempo es \(O(n)\).  |
-| Ver detalle de un ítem | O(n) o O(1) | O(1) | Si busca la canción recorriendo el catálogo hasta encontrar su identificador, en el peor caso debe revisar todas las canciones. Una vez encontrada, muestra sus datos.. |
-| - |  | |  |
+| Operación | Tiempo | Espacio auxiliar | Por qué |
+|---|---|---|---|
+| Listar catálogo | O(n) | O(1) | Recorre los n elementos mediante un iterador. |
+| Búsqueda lineal | O(1) mejor / O(n) peor | O(1) | Puede encontrar el elemento al principio o recorrer toda la colección. |
+| Búsqueda binaria | O(1) mejor / O(log n) peor | O(1) | Divide a la mitad el rango de búsqueda; requiere datos ordenados. |
+| Ordenar por selección | O(n²) | O(1) | Usa dos bucles anidados y modifica la colección. |
+| Ordenar por inserción | O(n) mejor / O(n²) promedio y peor | O(1) | Si los datos ya están ordenados, realiza pocas comparaciones; en otros casos desplaza elementos. |
+| Ordenar por Quick Sort | O(n log n) promedio / O(n²) peor | O(log n) promedio de pila recursiva | Divide la colección usando un pivote; el peor caso depende de las particiones. |
+| Ver detalle de un ítem | O(n) o O(1) | O(1) | Depende de si se busca recorriendo la colección o se accede directamente por índice. |
 
-Mediciones (`time.perf_counter`):
+### Mediciones reales con `time.perf_counter()`
 
-| Operación | n | segundos |
-| --------- | - | -------- |
-Mediciones (`time.perf_counter`):
+Se midió el tiempo promedio por operación con 5.000 repeticiones para las búsquedas y 50 para los ordenamientos. Se usó el catálogo original de 19 canciones y copias ampliadas de 190 y 1.900 canciones.
 
-| Operación | n = 19 (s) | n = 190 (s) | n = 1900 (s) |
+| Operación | n = 19 (s) | n = 190 (s) | n = 1.900 (s) |
 |---|---:|---:|---:|
 | Búsqueda lineal fallida | 0,00000325 | 0,00003117 | 0,00032219 |
-| Búsqueda binaria exitosa | 0,00000042 | 0,00000097 | 0,00000122 |
-| Búsqueda lineal exitosa | 0,00000179 | 0,00000046 | 0,00000033 |
 | Búsqueda binaria fallida | 0,00000133 | 0,00000217 | 0,00000361 |
 | Ordenamiento por selección | 0,00006414 | 0,00550927 | 0,65684309 |
 | Ordenamiento por inserción | 0,00005066 | 0,00288814 | 0,32855763 |
+
+### Análisis de los resultados
+
+La búsqueda lineal fallida aumentó su tiempo aproximadamente en proporción al tamaño de la colección, lo que coincide con su complejidad O(n). La búsqueda binaria mostró un crecimiento mucho menor, acorde con O(log n), ya que reduce el rango de búsqueda a la mitad en cada paso.
+
+Los ordenamientos por selección e inserción presentaron un crecimiento pronunciado. Entre 190 y 1.900 canciones, el tiempo aumentó aproximadamente 119 veces para selección y 114 veces para inserción, en concordancia con el comportamiento cuadrático O(n²).
+
+Los tiempos corresponden a una ejecución concreta y pueden variar según el hardware y las condiciones del sistema. Los resultados muestran tendencias compatibles con las complejidades teóricas, pero no son valores universales.
 
 ## 6. Persistencia (E5)
 
