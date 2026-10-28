@@ -9,7 +9,11 @@ from src.algoritmos.ordenamiento import (
     ordenar_seleccion,
     ordenar_insercion,
 )
-
+from src.algoritmos.ordenamiento import (
+    ordenar_seleccion,
+    ordenar_insercion,
+)
+from src.algoritmos.quicksort import ordenar_quicksort
 
 REPETICIONES_BUSQUEDA = 5000
 REPETICIONES_ORDENAMIENTO = 50
@@ -103,10 +107,17 @@ def medir_tamano(nombre, canciones):
         REPETICIONES_ORDENAMIENTO,
     )
 
+    tiempo_quicksort = medir_promedio(
+        lambda: ordenar_quicksort(
+            list(canciones),
+            clave_titulo,
+        ),
+        REPETICIONES_ORDENAMIENTO,
+    )
     print("Ordenamientos (tiempo promedio por operación):")
     print(f"  Selección:        {tiempo_seleccion:.8f} segundos")
     print(f"  Inserción:        {tiempo_insercion:.8f} segundos")
-
+    print(f"  Quicksort:        {tiempo_quicksort:.8f} segundos")
 
 def main():
     catalogo = crear_catalogo()
