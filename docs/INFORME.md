@@ -206,7 +206,7 @@ Dónde se usa cada uno en el dominio:
 | Búsqueda binaria | O(1) mejor / O(log n) peor | O(1) | Divide a la mitad el rango de búsqueda; requiere datos ordenados. |
 | Ordenar por selección | O(n²) | O(1) | Usa dos bucles anidados y modifica la colección. |
 | Ordenar por inserción | O(n) mejor / O(n²) promedio y peor | O(1) | Si los datos ya están ordenados, realiza pocas comparaciones; en otros casos desplaza elementos. |
-| Ordenar por Quick Sort | O(n log n) promedio / O(n²) peor | O(log n) promedio de pila recursiva | Divide la colección usando un pivote; el peor caso depende de las particiones. |
+| Ordenar por Quick Sort | O(n log n) promedio / O(n²) peor | O(log n) promedio de pila recursiva | Divide la colección en 3 usando un pivote como el centro; el peor caso es que este ordenada. |
 | Ver detalle de un ítem | O(n) o O(1) | O(1) | Depende de si se busca recorriendo la colección o se accede directamente por índice. |
 
 ### Mediciones reales con `time.perf_counter()`
@@ -219,6 +219,7 @@ Se midió el tiempo promedio por operación con 5.000 repeticiones para las bús
 | Búsqueda binaria fallida | 0,00000133 | 0,00000217 | 0,00000361 |
 | Ordenamiento por selección | 0,00006414 | 0,00550927 | 0,65684309 |
 | Ordenamiento por inserción | 0,00005066 | 0,00288814 | 0,32855763 |
+| Ordenamiento por QuickSort  | 0 | 0 | 0 |
 
 ### Análisis de los resultados
 
