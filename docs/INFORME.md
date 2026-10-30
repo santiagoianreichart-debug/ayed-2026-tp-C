@@ -202,11 +202,11 @@ Dónde se usa cada uno en el dominio:
 | Operación | Tiempo | Espacio auxiliar | Por qué |
 |---|---|---|---|
 | Listar catálogo | O(n) | O(1) | Recorre los n elementos mediante un iterador. |
-| Búsqueda lineal | O(1) mejor / O(n) peor | O(1) | Puede encontrar el elemento al principio o recorrer toda la colección. |
-| Búsqueda binaria | O(1) mejor / O(log n) peor | O(1) | Divide a la mitad el rango de búsqueda; requiere datos ordenados. |
-| Ordenar por selección | O(n²) | O(1) | Usa dos bucles anidados y modifica la colección. |
-| Ordenar por inserción | O(n) mejor / O(n²) promedio y peor | O(1) | Si los datos ya están ordenados, realiza pocas comparaciones; en otros casos desplaza elementos. |
-| Ordenar por Quick Sort | O(n log n) promedio / O(n²) peor | O(log n) promedio de pila recursiva | Divide la colección en 3 usando un pivote como el centro; el peor caso es que este ordenada. |
+| Búsqueda lineal | O(1) mejor / O(n) peor | O(1) | Recorre cada elemento hasta encontrarlo, puede encontrarlo al principio o al final de toda la colección. |
+| Búsqueda binaria | O(1) mejor / O(log n) peor | O(1) | Requiere datos ordenados, divide la lista a la mitad, descarta la parte donde no puede estar el elemento y repite el proceso hasta encontrarlo.|
+| Ordenar por selección | O(n²) | O(1) | Selecciona el elemento más pequeño y lo coloca al inicio de la colección, lo repite hasta ordenarlo ascendentemente. |
+| Ordenar por inserción | O(n) mejor / O(n²) peor y promedio | O(1) | Recorre la lista y coloca cada elemento en su posición correcta por lo que su tiempo de ejecución depende del grado de desorden de la lista.  |
+| Ordenar por Quick Sort | O(n log n) promedio / O(n²) peor | O(log n) | Divide la colección en 2 usando un pivote como el centro; es rápido y de bajo coste en memoria, su peor caso es que este ordenada. |
 | Ver detalle de un ítem | O(n) o O(1) | O(1) | Depende de si se busca recorriendo la colección o se accede directamente por índice. |
 
 ### Mediciones reales con `time.perf_counter()`
