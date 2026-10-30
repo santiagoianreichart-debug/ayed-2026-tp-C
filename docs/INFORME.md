@@ -219,7 +219,7 @@ Se midió el tiempo promedio por operación con 5.000 repeticiones para las bús
 | Búsqueda binaria fallida | 0,00000133 | 0,00000217 | 0,00000361 |
 | Ordenamiento por selección | 0,00006414 | 0,00550927 | 0,65684309 |
 | Ordenamiento por inserción | 0,00005066 | 0,00288814 | 0,32855763 |
-| Ordenamiento por QuickSort  | 0 | 0 | 0 |
+| Ordenamiento por QuickSort  | 0.00001190 | 0.00016728 | 0.00238909 |
 
 ### Análisis de los resultados
 
