@@ -196,7 +196,7 @@ Dónde se usa cada uno en el dominio:
 
 * Cola: se utiliza para representar la cola de reproducción y mantiene el orden en que fueron agregadas las canciones.
 
-## 5. Complejidad (E4)
+
 ## 5. Complejidad (E4)
 
 | Operación | Tiempo | Espacio auxiliar | Por qué |
