@@ -66,4 +66,3 @@ id,titulo,artista,album,genero,anio,duracion_seg
 65,Yellow (Live),Coldplay,Live 2003,Rock,2003,280
 66,Blank Space (Acoustic),Taylor Swift,1989,Pop,2014,228
 67,Get Lucky (Daft Punk Remix),Daft Punk,Random Access Memories,Electronica,2013,248
-68,beat it, michael jackson, 1990
