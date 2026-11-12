@@ -1,6 +1,7 @@
 from src.dominio.cancion import Cancion
 from src.tads.lista_enlazada import ListaEnlazada
-
+from src.persistencia.texto import cargar_texto
+from src.excepciones import ArchivoInvalidoError
 
 def crear_catalogo():
     catalogo = ListaEnlazada()
@@ -62,5 +63,56 @@ def crear_catalogo():
     catalogo.insertar_al_final(
         Cancion(15, "The Adults Are Talking", "The Strokes", "The New Abnormal", "Indie Rock", 2020, 309)
     )
+
+    return catalogo
+def crear_catalogo_desde_texto(ruta_canciones, ruta_versiones):
+    """Construye el catálogo musical leyendo archivos de texto."""
+
+    filas = cargar_texto(ruta_canciones)
+    relaciones = cargar_texto(ruta_versiones)
+
+    catalogo = ListaEnlazada()
+    canciones_por_id = {}
+
+    try:
+        for fila in filas:
+            cancion = Cancion(
+                int(fila["id"]),
+                fila["titulo"],
+                fila["artista"],
+                fila["album"],
+                fila["genero"],
+                int(fila["anio"]),
+                int(fila["duracion_seg"]),
+            )
+
+            if cancion.id in canciones_por_id:
+                raise ArchivoInvalidoError(
+                    f"El ID {cancion.id} está repetido."
+                )
+
+            canciones_por_id[cancion.id] = cancion
+            catalogo.insertar_al_final(cancion)
+
+        for relacion in relaciones:
+            id_cancion = int(relacion["cancion_id"])
+            id_original = int(relacion["version_de_id"])
+
+            if id_cancion not in canciones_por_id:
+                raise ArchivoInvalidoError(
+                    f"No existe la canción con ID {id_cancion}."
+                )
+
+            if id_original not in canciones_por_id:
+                raise ArchivoInvalidoError(
+                    f"No existe la canción original con ID {id_original}."
+                )
+
+            canciones_por_id[id_cancion].version_de = id_original
+
+    except (KeyError, ValueError) as error:
+        raise ArchivoInvalidoError(
+            f"Los datos del catálogo tienen un formato incorrecto: {error}"
+        )
 
     return catalogo
