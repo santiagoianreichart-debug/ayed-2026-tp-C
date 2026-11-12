@@ -1,6 +1,6 @@
 id,titulo,artista,album,genero,anio,duracion_seg
 1,De Musica Ligera,Soda Stereo,Cancion Animal,Rock,1990,213
-2,Persiana Americana,Soda Stereo,Signos,Rock,1986,263
+2,persiana americana modificada,soda stereo cambiado,Signos,Rock nacional,1986,267
 3,En la Ciudad de la Furia,Soda Stereo,Doble Vida,Rock,1988,351
 4,Crimen,Gustavo Cerati,Ahí vamos,Rock,2006,239
 5,Adios,Gustavo Cerati,Fuerza Natural,Rock,2009,233
@@ -10,9 +10,9 @@ id,titulo,artista,album,genero,anio,duracion_seg
 9,Seminare,Seru Giran,La Grasa de las Capitales,Rock,1979,241
 10,Los Dinosaurios,Charly Garcia,Clics Modernos,Rock,1983,241
 11,Demoliendo Hoteles,Charly Garcia,Piano Bar,Rock,1984,151
-12,Jijiji,Patricio Rey y sus Redonditos de Ricota,Un Baion para el Ojo Idiota,Rock,1988,316
-13,Ji Ji Ji,Patricio Rey y sus Redonditos de Ricota,En Directo,Rock,1992,318
-14,La Bestia Pop,Patricio Rey y sus Redonditos de Ricota,Oktubre,Rock,1986,240
+12,Jijiji,Patricio Rey y sus Redond,Un Baion para el Ojo Idiota,Rock,1988,316
+13,Ji Ji Ji,Patricio Rey y sus Redond,En Directo,Rock,1992,318
+14,La Bestia Pop,Patricio Rey y sus Redond,Oktubre,Rock,1986,240
 15,Alfonsina y el mar,Mercedes Sosa,Mujeres Argentinas,Folklore,1969,298
 16,Gracias a la Vida,Mercedes Sosa,Hasta la Victoria,Folklore,1971,271
 17,La Balsa,Los Gatos,Los Gatos,Rock,1967,187
@@ -66,3 +66,4 @@ id,titulo,artista,album,genero,anio,duracion_seg
 65,Yellow (Live),Coldplay,Live 2003,Rock,2003,280
 66,Blank Space (Acoustic),Taylor Swift,1989,Pop,2014,228
 67,Get Lucky (Daft Punk Remix),Daft Punk,Random Access Memories,Electronica,2013,248
+68,beat it, michael jackson, 1990

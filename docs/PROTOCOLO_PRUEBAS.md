@@ -25,5 +25,5 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 | P15 | E4 | Búsqueda binaria con catálogo desordenado | catálogo desordenado | avisa o reordena; no da un falso "no encontrado" |pasa | |
 | P16 | E4 | Ordenar por un criterio y después por otro | título y año | el orden cambia correctamente según cada criterio | no corrido | |
 | P17 | E5 | Guardar CSV, salir, volver a entrar | | los datos siguen | pasa| |
-| P18 | E5 | Guardar binario y modificar un registro por id | | al recargar, ese campo cambió | no corrido | |
+| P18 | E5 | Guardar binario y modificar un registro por id | | al recargar, ese campo cambió | pasa | |
 | P19 | E5 | Abrir un binario truncado o con magia mala | archivo basura | excepción de archivo inválido | no corrido | |
