@@ -1,7 +1,7 @@
 id,titulo,artista,album,genero,anio,duracion_seg
 1,De Musica Ligera,Soda Stereo,Cancion Animal,Rock,1990,213
 2,persiana americana modificada,soda stereo cambiado,Signos,Rock nacional,1986,267
-3,En la Ciudad de la Furia,Soda Stereo,1988,351
+3,En la Ciudad de la Furia,Soda Stereo,doble vida, Rock, 1988,351
 4,Crimen,Gustavo Cerati,Ahí vamos,Rock,2006,239
 5,Adios,Gustavo Cerati,Fuerza Natural,Rock,2009,233
 6,Muchacha ojos de papel,Luis Alberto Spinetta,Almendra,Rock,1969,203
