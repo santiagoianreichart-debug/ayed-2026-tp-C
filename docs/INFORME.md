@@ -231,9 +231,50 @@ Los tiempos corresponden a una ejecución concreta y pueden variar según el har
 
 ## 6. Persistencia (E5)
 
-* Layout del registro binario (campos, `struct`, anchos):
+Se implementó la persistencia del catálogo mediante archivos de texto y binarios.
 
-* Header:
+Archivos de texto
+canciones.txt: almacena los datos de las canciones separados por comas.
+versiones.txt: almacena las relaciones entre canciones mediante cancion_id y version_de_id.
+Se implementaron cargar_texto() y guardar_texto() para leer y guardar los datos.
+
+Archivo binario
+Se utiliza struct para almacenar registros de longitud fija.
+
+Layout del registro:
+
+struct.Struct("<I30s25s30s12s2H") = 105 bytes.
+
+| Campo | Formato | Tamaño |
+|---|---|---:|
+| ID | I | 4 bytes |
+| Título | 30s | 30 bytes |
+| Artista | 25s | 25 bytes |
+| Álbum | 30s | 30 bytes |
+| Género | 12s | 12 bytes |
+| Año | H | 2 bytes |
+| Duración | H | 2 bytes |
+| Total | | 105 bytes |
+
+Las cadenas se codifican en UTF-8, se recortan al ancho establecido y se completan con bytes nulos (\x00).
+
+Header:
+
+struct.Struct("<4s1sI") = 9 bytes.
+
+Contiene:
+Firma: AYED.
+Tema: M.
+Cantidad de registros almacenados.
+
+Operaciones sobre archivos
+Alta: alta_binario() agrega el registro al final del archivo y actualiza la cantidad del encabezado.
+Modificación: posicion_del_id() obtiene la posición de la canción y actualizar_registro() utiliza seek(HEADER.size + posicion * FORMATO.size) para modificar directamente ese registro.
+Baja: baja_binario() reescribe el archivo sin el registro eliminado y actualiza el encabezado.
+
+Las modificaciones también se guardan en el archivo de texto para mantener sincronizados los datos.
+
+Los errores de archivos inexistentes, encabezados inválidos y registros incompletos se controlan mediante ArchivoInvalidoError.
 ## 7. Reparto de trabajo (E6)
 
 | Integrante | Qué hizo | Qué puede defender |

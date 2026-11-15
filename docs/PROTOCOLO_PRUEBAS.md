@@ -23,9 +23,9 @@ Mínimos: 8 casos escritos en E2; ejecutados en E3; 15 de regresión en E6 (pila
 | P13 | E4 | Búsqueda lineal de un nombre que existe | título de una canción existente | lo encuentra y lo muestra | pasa | |
 | P14 | E4 | Búsqueda lineal de un nombre que no existe | texto = `zzz_no_existe` | no encontrado, sin traceback, el menú sigue | pasa| |
 | P15 | E4 | Búsqueda binaria con catálogo desordenado | catálogo desordenado | avisa o reordena; no da un falso "no encontrado" |pasa | |
-| P16 | E4 | Ordenar por un criterio y después por otro | título y año | el orden cambia correctamente según cada criterio | no corrido | |
-| P17 | E5 | Ordenar por quicksort por título | ingresar un título | el orden cambia correctamente según cada criterio | no corrido | |
-| P18 | E5 | Ordenar por Quicksort Mediana de 3 por artista | ingresar un artista | el orden cambia correctamente según cada criterio | no corrido | |
-| P19 | E5 | Guardar CSV, salir, volver a entrar | | los datos siguen | pasa| |
+| P16 | E4 | Ordenar por un criterio y después por otro | título y año | el orden cambia correctamente según cada criterio | pasa | |
+| P17 | E5 | Ordenar por quicksort por título | ingresar un título | el orden cambia correctamente según cada criterio | pasa | |
+| P18 | E5 | Ordenar por Quicksort Mediana de 3 por artista | ingresar un artista | el orden cambia correctamente según cada criterio | pasa | |
+| P19 | E5 | Guardar CSV, salir, volver a entrar | | los datos siguen | pasa | |
 | P20 | E5 | Guardar binario y modificar un registro por id | | al recargar, ese campo cambió | pasa | |
-| P21 | E5 | Abrir un binario truncado o con magia mala | archivo basura | excepción de archivo inválido | no corrido | |
+| P21 | E5 | Abrir un binario truncado o con magia mala | archivo basura | excepción de archivo inválido | pasa | |
