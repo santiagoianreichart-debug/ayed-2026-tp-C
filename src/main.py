@@ -32,6 +32,8 @@ from src.algoritmos.busqueda import busqueda_binaria
 from src.algoritmos.ordenamiento import (
     ordenar_seleccion,
     ordenar_insercion,
+    ordenar_quicksort,
+    ordenar_quicksort_con_mediana_de_tres,
 )
 from src.persistencia.texto import cargar_texto, guardar_texto
 from src.persistencia.binario import (
@@ -136,7 +138,9 @@ def menu_ordenamiento(catalogo):
         print("1. Selección por título")
         print("2. Inserción por artista")
         print("3. Inserción por año")
-        print("4. Búsqueda binaria por título")
+        print("4. Quick Sort por título")
+        print("5. Quick Sort (mediana de tres) por artista")
+        print("6. Búsqueda binaria por título")
         print("0. Volver")
 
         opcion = input("> ").strip()
@@ -177,6 +181,26 @@ def menu_ordenamiento(catalogo):
             )
 
         elif opcion == "4":
+            ordenar_quicksort(
+                canciones,
+                lambda cancion: cancion.titulo.casefold(),
+            )
+            mostrar_resultados(
+                "Catálogo ordenado por título (Quick Sort)",
+                canciones,
+            )
+
+        elif opcion == "5":
+            ordenar_quicksort_con_mediana_de_tres(
+                canciones,
+                lambda cancion: cancion.artista.casefold(),
+            )
+            mostrar_resultados(
+                "Catálogo ordenado por artista (Quick Sort mediana de tres)",
+                canciones,
+            )
+
+        elif opcion == "6":
             menu_busqueda_binaria(catalogo)
 
         else:
