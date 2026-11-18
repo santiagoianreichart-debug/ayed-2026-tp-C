@@ -279,4 +279,6 @@ Los errores de archivos inexistentes, encabezados inválidos y registros incompl
 
 | Integrante | Qué hizo | Qué puede defender |
 | ---------- | -------- | ------------------ |
-|            |          |                    |
+|    Nahuel Armesto      |   corregir el main y los módulos, cree la PILA, COLA y Lista Enlazada, algoritmos de búsqueda y ordenamiento       |    TADs y algoritmos de búsqueda y ordenamiento                 |
+| Santiago Reichart           |          |                    |
+|    Juan Pablo Macchi        |          |                    |
