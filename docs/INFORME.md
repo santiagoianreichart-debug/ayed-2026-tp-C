@@ -243,7 +243,7 @@ Se utiliza struct para almacenar registros de longitud fija.
 
 Layout del registro:
 
-struct.Struct("<I30s25s30s12s2H") = 105 bytes.
+struct.Struct("<I30s25s30s20s2H") = 113 bytes.
 
 | Campo | Formato | Tamaño |
 |---|---|---:|
@@ -251,10 +251,10 @@ struct.Struct("<I30s25s30s12s2H") = 105 bytes.
 | Título | 30s | 30 bytes |
 | Artista | 25s | 25 bytes |
 | Álbum | 30s | 30 bytes |
-| Género | 12s | 12 bytes |
+| Género | 20s | 20 bytes |
 | Año | H | 2 bytes |
 | Duración | H | 2 bytes |
-| Total | | 105 bytes |
+| Total | | 113 bytes |
 
 Las cadenas se codifican en UTF-8, se recortan al ancho establecido y se completan con bytes nulos (\x00).
 
