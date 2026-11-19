@@ -1,5 +1,5 @@
 from src.tads.lista_enlazada import ListaEnlazada
-from src.excepciones import ColeccionLlenaError
+from src.excepciones import ColeccionLlenaError, ColeccionVaciaError
 
 
 class Playlist:
@@ -19,6 +19,9 @@ class Playlist:
         self._canciones.insertar_al_final(cancion)
 
     def eliminar(self, cancion):
+        if self.esta_vacia():
+            raise ColeccionVaciaError("La playlist está vacía.")
+
         self._canciones.eliminar(cancion)
 
     def esta_vacia(self):

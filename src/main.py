@@ -26,6 +26,7 @@ from src.excepciones import (
     PilaVaciaError,
     ColaVaciaError,
     ColeccionLlenaError,
+    ColeccionVaciaError,
     ArchivoInvalidoError,
 )
 from src.algoritmos.busqueda import busqueda_binaria
@@ -649,6 +650,9 @@ def menu_playlist(catalogo, playlist):
 
             except ItemNoEncontradoError:
                 print("No se encontró ese elemento.")
+
+            except ColeccionVaciaError:
+                print("La playlist está vacía. No hay canciones para eliminar.")
 
             except ValueError:
                 print("El ID debe ser un número.")
