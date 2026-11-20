@@ -13,10 +13,24 @@ Repositorio del grupo. Partir de este esqueleto. No borrar la estructura de `src
 **Tema elegido:** Biblioteca musical 
 
 ## Que hace
-a
+El programa desde la interfaz permite:
+- Listar el catálogo de canciones.
+- Ver el detalle de una canción.
+- Buscar canciones (búsqueda lineal y búsqueda binaria).
+- Ordenar el catálogo (selección, inserción, Quick Sort y QuickSort Media de 3).
+- Listar las versiones de una canción mediante recursión.
+- ABM del catálogo: alta, baja y modificación de canciones.
+- Playlist (colección principal) con un tope de 6 canciones.
+- Historial de reproducciones (pila).
+- Cola de reproducción (cola).
+- Persistencia en archivos de texto (`.txt`) y en archivo binario con `struct`.
 
 ## Limitaciones
-Listar Versiones muestra todas las versiones de la canción buscada, es decir, repite los IDs.
+
+- El alta no valida canciones duplicadas: se puede cargar la misma canción dos veces con IDs distintos. Si ambas se marcan como versión de la misma canción original, "Listar versiones" las muestra como dos versiones distintas.
+- La búsqueda binaria solo es válida con el catálogo ordenado por la clave buscada. Si no lo está, puede devolver "no encontrado" aunque la canción exista.
+- La recursión de versiones avanza por índice, así que con catálogos de más de ~1000 canciones supera el límite de recursión de Python.
+- Los textos tienen ancho fijo en el binario (título 30, artista 25, álbum 30 y género 12 bytes). Al dar de baja una canción, el historial y la cola pueden seguir mostrándola.
 
 ## Cómo ejecutar
 
