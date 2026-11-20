@@ -12,6 +12,12 @@ Repositorio del grupo. Partir de este esqueleto. No borrar la estructura de `src
 
 **Tema elegido:** Biblioteca musical 
 
+## Que hace
+a
+
+## Limitaciones
+Listar Versiones muestra todas las versiones de la canción buscada, es decir, repite los IDs.
+
 ## Cómo ejecutar
 
 Desde la raíz del repo, con Python 3.10 o superior:

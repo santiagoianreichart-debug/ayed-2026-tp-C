@@ -13,7 +13,7 @@ from src.algoritmos.ordenamiento import (
     ordenar_seleccion,
     ordenar_insercion,
 )
-from src.algoritmos.quicksort import ordenar_quicksort
+from src.algoritmos.ordenamiento import ordenar_quicksort
 
 REPETICIONES_BUSQUEDA = 5000
 REPETICIONES_ORDENAMIENTO = 50
