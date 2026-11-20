@@ -1,4 +1,4 @@
-# Informe del TP
+﻿# Informe del TP
 
 Completar y hacer crecer en cada entrega. No hace falta prosa larga: oraciones claras y tablas.
 
@@ -278,7 +278,7 @@ Los errores de archivos inexistentes, encabezados inválidos y registros incompl
 ## 7. Reparto de trabajo (E6)
 
 | Integrante | Qué hizo | Qué puede defender |
-| ---------- | -------- | ------------------ |
-|    Nahuel Armesto      |   corregir el main y los módulos, cree la PILA, COLA y Lista Enlazada, algoritmos de búsqueda y ordenamiento       |    TADs y algoritmos de búsqueda y ordenamiento                 |
-| Santiago Reichart           |          |                    |
-|    Juan Pablo Macchi        |          |                    |
+|---|---|---|
+| Juan Pablo Macchi | Presentación del proyecto, modelo de datos, clase `Cancion`, catálogo inicial y desarrollo de la recursividad para listar versiones de canciones. | Introducción, E1 y E2: temática del proyecto, modelo de datos, catálogo, recursividad y función `listar_versiones_recursivas()`. |
+| Nahuel Armesto | Corrección del menú principal y de módulos; implementación de la lista enlazada, pila y cola; desarrollo de los algoritmos de búsqueda y ordenamiento. | E3 y E4: TAD, lista enlazada, pila, cola, búsqueda lineal y binaria, ordenamientos y complejidad algorítmica. |
+| Santiago Reichart | Desarrollo de la persistencia de datos en archivos de texto y binarios; implementación de operaciones de alta, baja y modificación; manejo de errores, pruebas e integración final. | E5 y E6: archivos TXT y binarios, uso de `struct`, modificación de registros, manejo de errores, protocolo de pruebas e integración del proyecto. |

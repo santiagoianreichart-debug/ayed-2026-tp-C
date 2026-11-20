@@ -1,7 +1,9 @@
+
 from src.dominio.cancion import Cancion
 from src.tads.lista_enlazada import ListaEnlazada
 from src.persistencia.texto import cargar_texto
 from src.excepciones import ArchivoInvalidoError
+
 
 def crear_catalogo():
     catalogo = ListaEnlazada()
@@ -65,8 +67,10 @@ def crear_catalogo():
     )
 
     return catalogo
-def crear_catalogo_desde_texto(ruta_canciones, ruta_versiones):
-    """Construye el catálogo musical leyendo archivos de texto."""
+
+
+def _crear_catalogo_desde_archivos(ruta_canciones, ruta_versiones):
+    """Construye el catálogo musical leyendo archivos CSV o TXT."""
 
     filas = cargar_texto(ruta_canciones)
     relaciones = cargar_texto(ruta_versiones)
@@ -108,6 +112,11 @@ def crear_catalogo_desde_texto(ruta_canciones, ruta_versiones):
                     f"No existe la canción original con ID {id_original}."
                 )
 
+            if id_cancion == id_original:
+                raise ArchivoInvalidoError(
+                    "Una canción no puede ser versión de sí misma."
+                )
+
             canciones_por_id[id_cancion].version_de = id_original
 
     except (KeyError, ValueError) as error:
@@ -116,3 +125,19 @@ def crear_catalogo_desde_texto(ruta_canciones, ruta_versiones):
         )
 
     return catalogo
+
+
+def crear_catalogo_desde_csv(ruta_canciones, ruta_versiones):
+    """Carga el catálogo inicial desde los CSV de la cátedra."""
+    return _crear_catalogo_desde_archivos(
+        ruta_canciones,
+        ruta_versiones,
+    )
+
+
+def crear_catalogo_desde_texto(ruta_canciones, ruta_versiones):
+    """Carga un catálogo guardado en archivos de texto."""
+    return _crear_catalogo_desde_archivos(
+        ruta_canciones,
+        ruta_versiones,
+    )
